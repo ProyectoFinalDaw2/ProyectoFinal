@@ -1,3 +1,15 @@
+<?php
+	include_once 'includes/db_connect.php';
+	include_once 'includes/functions.php';
+	 
+	sec_session_start();
+	 
+	if (login_check($mysqli) == true) {
+	    $logged = 'in';
+	} else {
+	    $logged = 'out';
+	}
+?>
 <!DOCTYPE html> 
 <html lang="en">
 	<head>
@@ -21,6 +33,9 @@
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
 		<script src="javaScrips/calendario.js" language="javascript" type="text/javascript"></script>
 		<script src="javaScrips/login.js"></script>
+		<!--Google Fonts-->
+		<script type="text/JavaScript" src="javaScrips/sha512.js"></script> 
+		<script type="text/JavaScript" src="javaScrips/forms.js"></script> 
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -37,12 +52,23 @@
 					   <li><a href="view/noticias.php" class="btn btn-info">Noticias</a></li>
 					  <li><a href="view/registrarse.php" class="btn btn-info">Registrate</a></li>
 					   <!-- Login Starts Here -->
+					   
 						<li id="login">
 					    <div id="loginContainer">
+						<div id="loginButton">
 						<a href="#" id="loginButton" class="btn btn-warning"><span>Login</span><em></em></a>
 						<div style="clear:both"></div>
 						<div id="loginBox">
-						    <form id="loginForm">
+							<?php
+								if (isset($_GET['error'])) {
+									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
+									}
+							?> 	<?php
+								if (isset($_GET['error'])) {
+									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
+									}
+								?> 
+						    <form id="loginForm" action="includes/process_login.php" method="post" name="login_form">
 							<fieldset id="body">
 							    <fieldset>
 								<label for="email">Email  <input type="text" name="email" id="email" /></label>
@@ -52,11 +78,12 @@
 								<label for="password">Contraseña  <input type="password" name="password" id="password" /></label>
 							       
 							    </fieldset>
-							    <input type="submit" id="login" value="Entrar"  class="btn btn-info" />
+							    <input type="submit" id="login" value="Entrar"  class="btn btn-info" onclick="formhash(this.form, this.form.password);"/>
 							    <label for="checkbox"><input type="checkbox" id="checkbox" />Recuerdame</label>
 							</fieldset>
 							<span><a href="#">Has olvidado la contraseña?</a></span>
 						    </form>
+						</div>
 						</div>
 					    </div>
 					  </li>
