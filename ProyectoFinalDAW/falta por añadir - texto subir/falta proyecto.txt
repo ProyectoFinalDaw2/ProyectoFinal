@@ -1,0 +1,49 @@
+www perfil
+www subir
+//Donaciones y pagos. 
+
+
+Instrucciones
+Formatos para la subida
+
+Archivo admitido: Archivos comprimidos en .zip
+
+Imágenes: : Imagenes en formato .jpg o .png
+
+Tamaño máximo del archivo: 70MB
+
+Las imágenes deberán de estar ordenadas
+
+Recomendamos seguir esta numeración: 001.jpg, 002.jpg, 003.jpg, etc….
+Preguntas frecuentes
+¿Cómo se selecciona un manga o joint?
+
+Tendrás que escribir el nombre o parte del nombre y después seleccionarlo de la lista desplegable. Debajo de cada nombre está indicado el tipo (Manga,Manhua,Manhwa,Novela,Propio,Otros)
+
+El capítulo no se publica después de subirlo.
+
+Los capítulos subidos por nuevos usuarios y uploader deben de ser validados por un administrador antes de llegar a ser publicados
+
+¿Cómo puedo re-subir un capitulo?
+
+Para solucionar errores de edición, traducción, orden o eliminación de imágenes, únicamente tendrás que volver a subir el mismo capítulo para que la versión nueva sustituya a la anterior.
+
+¿Qué es el enlace de descarga?
+
+Es el enlace destinado a la descarga del capítulo. TuMangaOnline permite el uso de acortadores de enlaces si el scanlation lo desea.
+
+¿Qué es la url de apoyo?
+
+Es el enlace destinado a apoyar al scanlation o al autor. En él se permite la inclusión de un enlace al propio visor del scanlation, enlace al autor original o enlace al scanlation original de donde se obtuvo la fuente para realizar la traducción.
+
+
+Próximamente…
+No está disponible Aún no está disponible la subida de .pdf para las novelas
+
+Programación de las publicaciones
+
+(Poder seleccionar la hora y el día a la que quieres que se publique un capitulo)
+
+Incluir el tomo al que pertenecen el capítulo
+
+Eliminación de capítulos

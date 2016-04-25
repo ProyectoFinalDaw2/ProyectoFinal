@@ -1,0 +1,243 @@
+/************************************************************************************
+ESTRUCTURA
+*************************************************************************************/
+#header {
+		padding-top:5%;
+		padding-bottom: 2%;
+		margin-top:2%;
+		margin-left:5%;
+		margin-right:5%;
+		margin-bottom:2%;
+		}
+
+	
+	#content {
+		width: 60%;
+		float: left;
+	
+		}
+	#sidebar {
+		width: 40%;
+		float: right;
+		}
+	footer {
+		clear: both;
+		}
+
+	nav { 	margin:0 auto;
+			padding-top:10px;
+			text-align:center;
+		}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/*Para más de 981*/
+@media screen and (min-width: 981px) {
+	
+	#pagewrap {
+		margin-left:13%;
+		margin-right:13%;
+		margin-bottom:5%;
+	}
+	#content {
+		width: 60%;
+	}
+	#sidebar {
+		width: 40%;
+	}
+
+
+		
+
+			#calendar  {
+							margin-left:30%;
+							margin-bottom:5px;
+							margin-top:5px;
+						}
+
+
+#contenedor {
+			   	 display: table;
+			  	 margin-top:2%;	
+			  	width: 100%;
+				height:100%;
+				text-align:center;	
+				}
+
+	#contenidos {
+	    display: table-row;
+	}
+	#columna {
+	    display: table-cell;
+	    vertical-align: middle;
+	    padding: 10px;
+	}
+	#columna img {
+					width:80px ;
+					 height: 90px;
+			}
+}
+/* para 980px o menos */
+@media screen and (max-width: 980px) {
+	
+	#header{
+		margin-top:5%;
+		}	
+
+	#pagewrap {
+		width: 94%;
+	}
+	#content {
+		width: 60%;
+	}
+	#sidebar {
+		width: 40%;
+	}
+
+	#calendar  {
+					margin-left:3%;
+					margin-bottom:3%;
+					margin-top:3%;
+			}
+
+
+#contenedor {
+			   	 display: table;
+			  	 margin-top:2%;	
+			  	width: 100%;
+				height:100%;
+				text-align:center;	
+				}
+
+	#contenidos {
+	    display: table-row;
+	}
+	#columna {
+	    display: table-cell;
+	    vertical-align: middle;
+	    padding: 10px;
+	}
+	#columna img {
+					width:80px ;
+					 height: 90px;
+			}
+}
+/* para 800px o menos */
+@media screen and (max-width: 800px) {
+
+
+	#pagewrap {
+		width: 100%;
+	}
+	#content {
+		width: auto;
+	}
+	#sidebar {
+		width:auto;
+	}
+	
+	#calendar  {
+					margin-left:3%;
+					margin-bottom:3%;
+					margin-top:3%;
+			}
+
+
+	#contenedor {
+			   	 display: table;
+			  	 margin-top:2%;	
+			  	width: 100%;
+				height:100%;
+				text-align:center;	
+				}
+
+	#contenidos {
+	    display: table-row;
+	}
+	#columna {
+	    display: table-cell;
+	    vertical-align: middle;
+	   
+	}
+	#columna img {
+					width:80px ;
+					 height: 90px;
+			}
+}
+/* para 700px o menos */
+@media screen and (max-width: 770px) {
+		#header {
+		margin-top:10%;
+		
+		}
+
+	#content {
+		width: auto;
+		float: none;
+	}
+	#sidebar {
+		width: auto;
+		float: none;
+	}
+
+#contenedor	
+{
+ display: table;
+margin-top:2%;	
+text-align:center;
+-webkit-appearance: none;
+width: 14px;
+height: 14px;
+}
+ 
+#calendar  {
+					margin-left:3%;
+					margin-bottom:3%;
+					margin-top:3%;
+			}
+
+
+#contenedor {
+			   	 display:list-item;
+			  	 margin-top:2%;	
+			  	width: 100%;
+				height:100%;
+				text-align:center;	
+				}
+
+
+#columna img {
+					width:60px ;
+					 height: 70px;
+			}
+}
+
+/* para 480px o menos */
+@media screen and (max-width: 480px) {
+	
+	#borrar {
+		display:none;
+	}
+	
+	#header {
+		margin-top:75px;
+		height: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	#sidebar {
+		float:bottom;
+	}
+
+	#loginContainer {
+   	 position:auto;
+  	 margin-top:5px;
+	margin-bottom:5px;
+	}
+
+
+
+}
+
