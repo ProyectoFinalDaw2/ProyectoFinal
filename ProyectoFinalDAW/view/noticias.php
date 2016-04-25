@@ -28,18 +28,29 @@
 			<!------------------------------------------------------------NAV------------------------------------------------->
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 		       			<ul>
-		       			 <div id="logo"><li><a href="#"><img src="../style/imagenes/simbolo.png" id="medida1"></a></li></div>
-					   <li><a href="../index.php" class="btn btn-info" >Inicio</a></li>
-					   <li><a href="mangas.php" class="btn btn-info">Mangas</a></li>
-					   <li><a href="#" class="btn btn-primary">Noticias</a></li>
+					   <div id="logo"><li><a href="#"><img src="../style/imagenes/simbolo.png" id="medida1"></a></li></div>
+					  <li><a href="../index.php" class="btn btn-info">Inicio</a></li>
+					  <li><a href="mangas.php" class="btn btn-info">Mangas</a></li>
+					   <li><a href="noticias.php" class="btn btn-primary">Noticias</a></li>
 					  <li><a href="registrarse.php" class="btn btn-info">Registrate</a></li>
 					   <!-- Login Starts Here -->
+					   
 						<li id="login">
 					    <div id="loginContainer">
+						<div id="loginButton">
 						<a href="#" id="loginButton" class="btn btn-warning"><span>Login</span><em></em></a>
 						<div style="clear:both"></div>
 						<div id="loginBox">
-						    <form id="loginForm">
+							<?php
+								if (isset($_GET['error'])) {
+									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
+									}
+							?> 	<?php
+								if (isset($_GET['error'])) {
+									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
+									}
+								?> 
+						    <form id="loginForm" action="includes/process_login.php" method="post" name="login_form">
 							<fieldset id="body">
 							    <fieldset>
 								<label for="email">Email  <input type="text" name="email" id="email" /></label>
@@ -49,11 +60,12 @@
 								<label for="password">Contraseña  <input type="password" name="password" id="password" /></label>
 							       
 							    </fieldset>
-							    <input type="submit" id="login" value="Entrar"  class="btn btn-info" />
+							    <input type="submit" id="login" value="Entrar"  class="btn btn-info" onclick="formhash(this.form, this.form.password);"/>
 							    <label for="checkbox"><input type="checkbox" id="checkbox" />Recuerdame</label>
 							</fieldset>
 							<span><a href="#">Has olvidado la contraseña?</a></span>
 						    </form>
+						</div>
 						</div>
 					    </div>
 					  </li>

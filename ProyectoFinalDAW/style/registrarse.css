@@ -9,3 +9,12 @@
 	
 }
 
+#validoRojo{
+	border-color: red;
+	border-width: 2px;
+}
+
+#validoGreen{
+	border-color: green;
+	border-width: 2px;
+}
