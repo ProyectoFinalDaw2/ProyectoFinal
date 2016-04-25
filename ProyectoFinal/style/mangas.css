@@ -1,0 +1,37 @@
+/***********************************************************************
+PAGUINA DE MANGAS
+************************************************************************/
+#centrado {
+			text-align:center;
+
+		}
+#imagenMangas {	margin-left:1%;
+				margin-top:1%;
+				margin-bottom:1%;
+				margin-right:1%;
+				width: 80px ;
+				height:100px;
+
+			}
+#buscador{
+				margin-left:1%;
+				margin-top:1%;
+				margin-bottom:1%;
+				margin-right:1%;
+		}
+#buscadorI{
+			float:left;
+			width: 80% ;
+			height:100%;
+			margin-right:1%;
+			}
+
+#buscadorD{	
+			float:right;
+			}
+#numeros{		
+				margin-left:40%;
+				margin-top:1%;
+				margin-bottom:1%;
+				margin-right:1%;
+		}
