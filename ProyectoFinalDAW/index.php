@@ -1,5 +1,5 @@
 <?php
-	include_once 'db/db_connect.php';
+	/*include_once 'db/db_connect.php';
 	include_once 'db/functions.php';
 	 
 	sec_session_start();
@@ -8,7 +8,7 @@
 	    $logged = 'in';
 	} else {
 	    $logged = 'out';
-	}
+	}*/
 ?>
 <!DOCTYPE html> 
 <html lang="en">
@@ -47,7 +47,7 @@
 			<!------------------------------------------------------------NAV------------------------------------------------->
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 		       			<ul>
-					   <div id="logo"><li><a href="#"><img src="style/imagenes/simbolo.png" id="medida1"></a></li></div>
+					   <div id="logo"><li><a href="#"><img src="style/imagenes/simbolo.png" id="medida1"></a>Manga's Umbrella Corporation</li></div>
 					  <li><a href="#" class="btn btn-primary">Inicio</a></li>
 					  <li><a href="view/mangas.php" class="btn btn-info">Mangas</a></li>
 					   <li><a href="view/noticias.php" class="btn btn-info">Noticias</a></li>

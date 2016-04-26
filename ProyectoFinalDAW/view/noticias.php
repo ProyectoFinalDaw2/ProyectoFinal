@@ -28,7 +28,7 @@
 			<!------------------------------------------------------------NAV------------------------------------------------->
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 		       			<ul>
-					   <div id="logo"><li><a href="#"><img src="../style/imagenes/simbolo.png" id="medida1"></a></li></div>
+					   <div id="logo"><li><a href="#"><img src="../style/imagenes/simbolo.png" id="medida1"></a>Manga's Umbrella Corporation</li></div>
 					  <li><a href="../index.php" class="btn btn-info">Inicio</a></li>
 					  <li><a href="mangas.php" class="btn btn-info">Mangas</a></li>
 					   <li><a href="noticias.php" class="btn btn-primary">Noticias</a></li>

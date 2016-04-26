@@ -29,10 +29,11 @@
 			<!------------------------------------------------------------NAV------------------------------------------------->
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 		       			<ul>
-					  <li><a href="#" class="btn btn-primary">Inicio</a></li>
-					  <li><a href="view/mangas.php" class="btn btn-info">Mangas</a></li>
-					   <li><a href="view/noticias.php" class="btn btn-info">Noticias</a></li>
-					  <li><a href="view/registrarse.php" class="btn btn-info">Registrate</a></li>
+		       		<div id="logo"><li><a href="#"><img src="../style/imagenes/simbolo.png" id="medida1"></a>Manga's Umbrella Corporation</li></div>
+					  <li><a href="#" class="btn btn-info">Inicio</a></li>
+					  <li><a href="mangas.php" class="btn btn-info">Mangas</a></li>
+					   <li><a href="noticias.php" class="btn btn-info">Noticias</a></li>
+					  <li><a href="registrarse.php" class="btn btn-info">Registrate</a></li>
 					   <!-- Login Starts Here -->
 					   
 						<li id="login">

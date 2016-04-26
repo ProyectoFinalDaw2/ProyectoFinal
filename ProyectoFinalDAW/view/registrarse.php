@@ -30,7 +30,7 @@
 			<!------------------------------------------------------------NAV------------------------------------------------->
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 		       			<ul>
-					   <div id="logo"><li><a href="#"><img src="../style/imagenes/simbolo.png" id="medida1"></a></li></div>
+					   <div id="logo"><li><a href="#"><img src="../style/imagenes/simbolo.png" id="medida1"></a>Manga's Umbrella Corporation</li></div>
 					  <li><a href="../index.php" class="btn btn-info">Inicio</a></li>
 					  <li><a href="mangas.php" class="btn btn-info">Mangas</a></li>
 					   <li><a href="noticias.php" class="btn btn-info">Noticias</a></li>
@@ -52,7 +52,7 @@
 									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
 									}
 								?> 
-						    <form id="loginForm" action="includes/process_login.php" method="post" name="login_form">
+						    <form id="loginForm" action="../controller/process_login.php" method="post" name="login_form">
 							<fieldset id="body">
 							    <fieldset>
 								<label for="email">Email  <input type="text" name="email" id="email" /></label>
@@ -82,57 +82,57 @@
 				<h3>Registrate</h3>
 				</div>
 				<div id="fondosBlancos">
-				 <h1>Aquí podras registrarte y formar parte de nuestro mundo</h1>     
+				 <h1>Aquí podrás registrarte y formar parte de nuestro mundo</h1>     
 				<h3>Este es el primer paso</h3>      
 				</div>
 				<article id="fondosBlancos">
 				<div id="formulario">
 				<div id="registro">
-				<form id="form" action="../controller/registro.php" method="post">
+				<form id="formulari" action="../controller/registro.php" method="post" onsubmit="return validateMyForm();">
 					 <label >Introduce un Nick *</label>
-				    <input type="text" class="form-control" id="nick" placeholder="Introduce un Nick">
+				    <input type="text" class="form-control" id="nick" placeholder="Introduce un Nick" name="nick">
 					<p class="help-block" id="negro">El nick deve ser unico</p>
  					
 				    <label>Email *</label>
-				    <input type="email" class="form-control" id="correo" placeholder="Introduce tu email">
+				    <input type="email" class="form-control" id="correo" placeholder="Introduce tu email" name="correo">
 					<p class="help-block" id="negro">El email deve ser unico</p>
 
 					
 				    <label >Nombre *</label>
-				    <input type="text" class="form-control" id="nombre" placeholder="Introduce nombre de usuario">
+				    <input type="text" class="form-control" id="nombre" placeholder="Introduce nombre de usuario" name="nombre">
 				
 				  
 				    <label >Apellidos *</label>
-				    <input type="text" class="form-control" id="apellidos" placeholder="Introduce tus apellidos">
+				    <input type="text" class="form-control" id="apellidos" placeholder="Introduce tus apellidos" name="apellidos">
 						  
 				  
 				    <label >Contraseña *</label>
-				    <input type="password" class="form-control" id="contrasena" placeholder="Contraseña">
+				    <input type="password" class="form-control" id="contrasena" placeholder="Contraseña" name="contrasena">
 				  
 				  
 				    <label >Repite Contraseña *</label>
-				    <input type="password" class="form-control" id="contrasena2" placeholder="Contraseña">
+				    <input type="password" class="form-control" id="contrasena2" placeholder="Contraseña" name="contrasena2">
 				    
 				     <label >Fecha de nacimiento *</label>
-				    <input type="date" class="form-control" id="fecha">
+				    <input type="date" class="form-control" id="fecha" name="fecha">
 				
 					<label> Sexo </label>
-				    <select id="seco" class="form-control">
-				      <option value="mercedes">No se especifica</option>
-					  <option value="volvo">Hombre</option>
-					  <option value="saab">Mujer</option>
+				    <select id="sexo" class="form-control" name="sexo">
+				      <option value="noseespecifica">No se especifica</option>
+					  <option value="hombre">Hombre</option>
+					  <option value="mujer">Mujer</option>
 					</select>
 					
 					<label >Telefono</label>
-				    <input type="text" class="form-control" id="numero" placeholder="Introduce tu numero de telefono">
+				    <input type="text" class="form-control" id="numero" placeholder="Introduce tu numero de telefono" name="numero">
 				    
-				 
+				 	<br/>
 				    <label>
-				      <input type="checkbox" id="aceptar">* Activa esta casilla para aceptar los <a href="terminos_de_uso.php">terminos de uso</a>
+				      <input type="checkbox" id="aceptar">* Activa esta casilla para aceptar los <a href="terminos_de_uso.php">términos de uso</a>
 				    </label>
 				    
 					  <label>
-				     <input type="button" id="submit" class="btn btn-default" value="Enviar"/>
+				     <input type="submit" id="submit" class="btn btn-default" value="Enviar" />
 				      </label>	
 				 	   
 				</form>	
