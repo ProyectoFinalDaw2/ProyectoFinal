@@ -1,4 +1,7 @@
 <?php
+include '../db/usuario.php';
+include '../db/db_connect.php';
+
 $nick = $_POST['nick'];
 $correo = $_POST['correo'];
 $nombre = $_POST['nombre'];
@@ -8,8 +11,26 @@ $fecha = $_POST['fecha'];
 $sexo = $_POST['sexo'];
 $numero= $_POST['numero'];
 
-$usuari=new usuario($nick, $correo, $nombre, $apellidos, $contrasena, $fecha, $sexo, $numero);
-$usuari->insertarUsuario();
+$conn=new Connect();
+$con=$conn->connection();
+
+if ($con!=false){
+	$usuari=new Usuario($nick, $correo, $nombre, $apellidos, $contrasena, $fecha, $sexo, $numero);
+	$insertado=$usuari->insertarUsuario($con);
+	
+	if ($insertado==true){
+		echo "insertado con exito";
+		$descon=$conn->disconnect($con);
+		setcookie("usuario", $nick);
+		header('Location: ../index.php');
+		
+	}else{
+		echo "Error al insertar usuario en la BDD";
+	}
+	
+}else{
+	echo "Error connectarte a la base de datos";
+}
 
 
 ?>

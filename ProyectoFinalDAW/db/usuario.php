@@ -1,7 +1,6 @@
 <?php
-include_once 'db_connect.php';
 
-Class usuario{
+Class Usuario{
 	
 	//Variables
 	private $nick;
@@ -96,11 +95,18 @@ Class usuario{
 			
 		//Insertar Usuario En BDD
 		
-			public function insertarUsuario(){
-
-				$sql = "INSERT INTO usuarios (nick,correo,nombre,apellidos,contrasenya,fechaNacimiento,sexo,telefono) 
-				VALUES ('$this->nick','$this->correo','$this->nombre','$this->apellidos','$this->contrasena','$this->fecha','$this->sexo','$this->numero');";
-				$resultat = mysqli_query($mysqli, $sql);
+			public function insertarUsuario($con){
+				
+				try{
+					
+					$sql = "INSERT INTO usuarios (nick,correo,nombre,apellidos,contrasenya,fechaNacimiento,sexo,telefono)
+					VALUES ('$this->nick','$this->correo','$this->nombre','$this->apellidos','$this->contrasena','$this->fecha','$this->sexo','$this->numero');";
+					$resultat = mysqli_query($con, $sql);
+					return true;
+				}catch (Exception $e){
+					return false;
+				}
+				
 			
 			}
 			

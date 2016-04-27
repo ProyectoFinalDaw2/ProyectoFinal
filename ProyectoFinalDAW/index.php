@@ -1,14 +1,10 @@
 <?php
-	/*include_once 'db/db_connect.php';
-	include_once 'db/functions.php';
-	 
-	sec_session_start();
-	 
-	if (login_check($mysqli) == true) {
-	    $logged = 'in';
-	} else {
-	    $logged = 'out';
-	}*/
+			
+				if(isset($_COOKIE['usuario'])) {
+					
+				}else{
+					
+				}
 ?>
 <!DOCTYPE html> 
 <html lang="en">
@@ -33,9 +29,6 @@
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
 		<script src="javaScrips/calendario.js" type="text/javascript"></script>
 		<script src="javaScrips/login.js"></script>
-		<!--Google Fonts-->
-		<script type="text/JavaScript" src="javaScrips/sha512.js"></script> 
-		<script type="text/JavaScript" src="javaScrips/forms.js"></script> 
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -60,16 +53,7 @@
 						<a href="#" id="loginButton" class="btn btn-warning"><span>Login</span><em></em></a>
 						<div style="clear:both"></div>
 						<div id="loginBox">
-							<?php
-								if (isset($_GET['error'])) {
-									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
-									}
-							?> 	<?php
-								if (isset($_GET['error'])) {
-									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
-									}
-								?> 
-						    <form id="loginForm" action="includes/process_login.php" method="post" name="login_form">
+						    <form id="loginForm" action="" method="post" name="login_form">
 							<fieldset id="body">
 							    <fieldset>
 								<label for="email">Email  <input type="text" name="email" id="email" /></label>
