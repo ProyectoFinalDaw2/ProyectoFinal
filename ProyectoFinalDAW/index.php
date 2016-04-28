@@ -1,13 +1,27 @@
-<?php
-			
-				if(isset($_COOKIE['usuario'])) {
-					
-				}else{
-					
-				}
+<!-- 
+Esta es la página principal.
+Esta dividida en diferentes partes:
+HEAD: donde se crean los diferentes enlaces a librerías, hojas de estilos, javascripts ...
+BODY: esta dividido también en diferentes en las que podemos encontrar: Barra de navegación, header, secciones (divididas en derecha e izquierda) que a su vez tienen artículos .. Con tal de crear un HTML5
+
+Enlaces con los que conecta index.php:
+-javaScrips/calendario.js
+-javaScrips/login.js
+-->
+<?php 
+session_start();
+
+if (isset($_SESSION["inicioSesion"])){
+	$nick=$_SESSION["inicioSesion"];
+
+}else{
+	$nick=null;
+
+}
 ?>
 <!DOCTYPE html> 
 <html lang="en">
+	<!-------------------------------------------------- HEAD----------------------------->
 	<head>
 		<meta charset="utf-8">
 		<!-- viewport meta to reset iPhone inital scale -->
@@ -27,13 +41,13 @@
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
-		<script src="javaScrips/calendario.js" type="text/javascript"></script>
-		<script src="javaScrips/login.js"></script>
+		<script src="javaScrips/calendario.js" type="text/javascript"></script>	
+ 		<script src="javaScrips/login.js"></script> 	
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	</head>
-
+	<!-------------------------------------------------- FINAL HEAD----------------------------->
 	<body>
 		<!------------------------------------------------------------PAGEWRAP------------------------------------------------->
 		<div id="pagewrap">
@@ -44,6 +58,7 @@
 					  <li><a href="#" class="btn btn-primary">Inicio</a></li>
 					  <li><a href="view/mangas.php" class="btn btn-info">Mangas</a></li>
 					   <li><a href="view/noticias.php" class="btn btn-info">Noticias</a></li>
+					   <?php if ($nick==null){?>
 					  <li><a href="view/registrarse.php" class="btn btn-info">Registrate</a></li>
 					   <!-- Login Starts Here -->
 					   
@@ -53,25 +68,32 @@
 						<a href="#" id="loginButton" class="btn btn-warning"><span>Login</span><em></em></a>
 						<div style="clear:both"></div>
 						<div id="loginBox">
-						    <form id="loginForm" action="" method="post" name="login_form">
+						    <form id="loginForm" action="controller/login.php" method="post" name="login_form">
 							<fieldset id="body">
+								<?php if (isset($_SESSION["inicioSesionFallida"])){?>
+								<fieldset>
+								<label id="inicioSesionFallida">Inicio Sesion Incorrecto</label>
+								<?php }?>
 							    <fieldset>
-								<label for="email">Email  <input type="text" name="email" id="email" /></label>
+								<label for="email">Email  <input type="text" name="correo" id="email" /></label>
 							       
 							    </fieldset>
 							    <fieldset>
-								<label for="password">Contraseña  <input type="password" name="password" id="password" /></label>
+								<label for="password">Contraseña  <input type="password" name="contrasena" id="password" /></label>
 							       
 							    </fieldset>
 							    <input type="submit" id="login" value="Entrar"  class="btn btn-info" onclick="formhash(this.form, this.form.password);"/>
-							    <label for="checkbox"><input type="checkbox" id="checkbox" />Recuerdame</label>
+							    <!--  <label for="checkbox"><input type="checkbox" id="checkbox" />Recuerdame</label> -->
 							</fieldset>
-							<span><a href="#">Has olvidado la contraseña?</a></span>
+							<!--<span><a href="#">Has olvidado la contraseña?</a></span> -->
 						    </form>
 						</div>
 						</div>
 					    </div>
 					  </li>
+					  <?php }else{?>
+					  <li><a href="#" id="loginContainer" class="btn btn-info"><span class="glyphicon glyphicon-user">&nbsp;</span><?php echo $nick;?></a></li>
+					  <?php }?>
 					 <!-- Login Ends Here -->
 				</ul>
 		    	</nav>
@@ -80,7 +102,7 @@
 			<header>
 			<div id="header">
 				<div id="topc">
-				<h3>Últimos Mangas</h3>
+				<h3>Últimos Mangas </h3>
 				</div>
 				<div id="fondosBlancos">
 				<div id="contenedor" class="table-responsive">

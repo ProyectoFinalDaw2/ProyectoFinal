@@ -1,3 +1,4 @@
+
 <!DOCTYPE html> 
 <html lang="en">
 	<head>
@@ -89,7 +90,7 @@
 				<div id="formulario">
 				<div id="registro">
 				<form id="formulari" action="../controller/registro.php" method="post" onsubmit="return validateMyForm();">
-					 <label >Introduce un Nick *</label>
+					 <label id="label" >Introduce un Nick *</label>
 				    <input type="text" class="form-control" id="nick" placeholder="Introduce un Nick" name="nick">
 					<p class="help-block" id="negro">El nick deve ser unico</p>
  					
@@ -126,11 +127,16 @@
 					<label >Telefono</label>
 				    <input type="text" class="form-control" id="numero" placeholder="Introduce tu numero de telefono" name="numero">
 				    
+				   <label >Captcha</label>  
+				   <br/>
+				   <div id="imatges"><button class="btn btn-success" id="retweet"><span class="glyphicon glyphicon-retweet"></span></button></div>
+				    <input type="text" name="captcha" class="form-control" id="captcha" /> </p>
+				    
 				 	<br/>
 				    <label>
 				      <input type="checkbox" id="aceptar">* Activa esta casilla para aceptar los <a href="terminos_de_uso.php">términos de uso</a>
 				    </label>
-				    
+				   
 					  <label>
 				     <input type="submit" id="submit" class="btn btn-default" value="Enviar" />
 				      </label>	

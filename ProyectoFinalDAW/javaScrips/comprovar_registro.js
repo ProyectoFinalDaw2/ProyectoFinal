@@ -8,6 +8,7 @@ var validar_contrasena=false;
 var validar_contrasena2=false;
 var validar_fecha=false;
 var validar_telefono=true;
+var validar_captcha=false;
 var borrado;
 var borrado2;
 var borrado3;
@@ -16,12 +17,197 @@ var borrado5;
 var borrado6;
 var borrado7;
 var borrado8;
-
+var borrado9;
+var borrado10;
+var caixa;
+var imatge;
 
 
 function inici(){
 	
+	validar();
+    crearCaptcha();
 	
+}
+
+function crearCaptcha(){
+	
+	if (captcha.value!=""){
+		if (document.getElementById("borrado9")!= null){
+			borrado9 = document.getElementById("borrado9");
+			borrado9.remove();
+		}
+		div=document.createElement("div");
+		text=document.createTextNode("El captcha no coinciden");				
+		div.appendChild(text);
+		div.setAttribute("id","borrado9");
+		insertAfter(captcha,div);
+		captcha.setAttribute("id","validoRojo");
+		validar_captcha=false;
+	}
+	
+	
+	
+	caixa=document.getElementById("imatges");
+	imatge=document.createElement("img");
+	imatge.src="../ajax/captcha.php";
+	imatge.setAttribute("id","captcha");
+	caixa.appendChild(imatge);
+	
+	var retweet=document.getElementById("retweet");
+	retweet.addEventListener("click",function() {
+		caixa.removeChild(imatge);
+		
+		
+			
+			peticion_http=inicializa_xhr();
+
+			peticion_http.onreadystatechange = obtenerRespuesta;
+
+			  peticion_http.open('GET', "../ajax/captcha.php", true);
+			  peticion_http.send(null);
+		
+	});
+}
+
+function inicializa_xhr() {  //aquesta funció crea un objecte de tipus AJAX
+	  if (window.XMLHttpRequest) {
+	    return new XMLHttpRequest(); 
+	  } else if (window.ActiveXObject) {
+	    return new ActiveXObject("Microsoft.XMLHTTP"); 
+	  } 
+}
+
+function obtenerRespuesta(){
+	
+	if(peticion_http.readyState == 4) {
+	      if(peticion_http.status == 200) {
+	    	 
+	    	  	
+	    	  	caixa=document.getElementById("imatges");
+	    		imatge=document.createElement("img");
+	    		imatge.src="../ajax/captcha.php";
+	    		imatge.setAttribute("id","captcha");
+	    		caixa.appendChild(imatge);
+	  			
+		
+	      }
+	}
+}
+
+
+function insertAfter(e,i){ 
+    if(e.nextSibling){ 
+        e.parentNode.insertBefore(i,e.nextSibling); 
+    } else { 
+        e.parentNode.appendChild(i); 
+    }
+}
+
+function obtenerRespuesta2(){
+	
+	if(peticion_http2.readyState == 4) {
+	      if(peticion_http2.status == 200) {
+	    	  
+	    	 var nick=document.getElementById("nick");
+	    	
+	    	 var buscadorNick=peticion_http2.responseText; 
+			
+	    	if (buscadorNick!="si"){
+	    		if (document.getElementById("borrado")!= null){
+					borrado = document.getElementById("borrado");
+					borrado.remove();
+				}
+	    		
+	    		
+	    		nick.style.borderColor = "green";
+	    		nick.style.borderWidth = "2px";
+				validar_nick=true;
+				
+				
+		
+	    	}else{
+	    		if (document.getElementById("borrado")!= null){
+					borrado = document.getElementById("borrado");
+					borrado.remove();
+				}
+	    		
+				div=document.createElement("div");
+				text=document.createTextNode("Este Nick ya esta registrado en nustra base de datos");				
+				div.appendChild(text);
+				div.setAttribute("id","borrado");
+				insertAfter(nick,div);
+				nick.style.borderColor = "red";
+				nick.style.borderWidth = "2px";
+				validar_nick=false;
+				
+			}
+	    	
+	    	
+	    	
+	      }
+	}
+}
+
+function obtenerRespuesta3(){
+	
+	if(peticion_http3.readyState == 4) {
+	      if(peticion_http3.status == 200) {
+	    	  
+	    	 
+	    	 var correo=document.getElementById("correo");
+	    	
+	    	 var buscadorCorreo=peticion_http3.responseText; 
+			
+	    	if (buscadorCorreo!="si"){
+	    		if (document.getElementById("borrado2")!= null){
+					borrado2 = document.getElementById("borrado2");
+					borrado2.remove();
+				}
+	    		
+	    		
+	    		correo.style.borderColor = "green";
+	    		correo.style.borderWidth = "2px";
+				validar_correo=true;
+				
+				
+		
+	    	}else{
+	    		if (document.getElementById("borrado2")!= null){
+					borrado2 = document.getElementById("borrado2");
+					borrado2.remove();
+				}
+	    		
+				div=document.createElement("div");
+				text=document.createTextNode("Este Correo ya esta registrado en nustra base de datos");				
+				div.appendChild(text);
+				div.setAttribute("id","borrado2");
+				insertAfter(correo,div);
+				correo.style.borderColor = "red";
+				correo.style.borderWidth = "2px";
+				validar_correo=false;
+				
+			}
+	    	
+	    	
+	    	
+	      }
+	}
+}
+
+function validateMyForm(){
+
+		if(validar_nick==true && validar_correo==true  && validar_nombre==true  && validar_apellidos==true  && validar_contrasena==true  
+				&& validar_contrasena2==true  && validar_fecha==true  && validar_telefono==true && document.getElementById("aceptar").checked==true && validar_captcha==true){
+			return true;
+		}else{
+			 return false;
+		}
+	 
+	}
+
+function validar(){
+
 	/**********************************************************************
 	 * NICK
 	 *******************************************************************/
@@ -29,14 +215,24 @@ function inici(){
 	var nick=document.getElementById("nick");
 	nick.addEventListener("blur",function() {
 	
-		if (nick.value!=""){			
-				nick.setAttribute("id","validoGreen");
-				validar_nick=true;
-				if (document.getElementById("borrado")!= null){
-					borrado = document.getElementById("borrado");
-					borrado.remove();
-				}
-				
+		if (nick.value!=""){	
+			
+			
+			
+			
+			peticion_http2=inicializa_xhr();
+
+			peticion_http2.onreadystatechange = obtenerRespuesta2;
+
+			peticion_http2.open("POST", "../ajax/comprueva_nick.php", true);
+
+		    peticion_http2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			
+			var aut=nick.value;
+			peticion_http2.send("autor=" + aut);
+			
+			
+	
 				
 		}else{
 			if (document.getElementById("borrado")!= null){
@@ -48,7 +244,8 @@ function inici(){
 			div.appendChild(text);
 			div.setAttribute("id","borrado");
 			insertAfter(nick,div);
-			nick.setAttribute("id","validoRojo");
+			nick.style.borderColor = "red";
+			nick.style.borderWidth = "2px";
 			validar_nick=false;
 		
 		}
@@ -65,12 +262,18 @@ function inici(){
 		if (correo.value!=""){
 			var expressio= new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/);
 			if (expressio.test(correo.value)==true){
-				correo.setAttribute("id","validoGreen");
-				validar_correo=true;
-				if (document.getElementById("borrado2")!= null){
-					borrado2 = document.getElementById("borrado2");
-					borrado2.remove();
-				}
+				
+				peticion_http3=inicializa_xhr();
+
+				peticion_http3.onreadystatechange = obtenerRespuesta3;
+
+				peticion_http3.open("POST", "../ajax/comprueva_correo.php", true);
+
+			    peticion_http3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				
+				var aut=correo.value;
+				peticion_http3.send("correo=" + aut);
+				
 			}else{
 				if (document.getElementById("borrado2")!= null){
 					borrado2 = document.getElementById("borrado2");
@@ -81,7 +284,8 @@ function inici(){
 				div.appendChild(text);
 				div.setAttribute("id","borrado2");
 				insertAfter(correo,div);
-				correo.setAttribute("id","validoRojo");
+				correo.style.borderColor = "red";
+				correo.style.borderWidth = "2px";
 			    validar_correo=false;
 			}
 			
@@ -95,7 +299,8 @@ function inici(){
 			div.appendChild(text);
 			div.setAttribute("id","borrado2");
 			insertAfter(correo,div);
-			correo.setAttribute("id","validoRojo");
+			correo.style.borderColor = "red";
+			correo.style.borderWidth = "2px";
 			validar_correo=false;
 		}
 			
@@ -381,28 +586,70 @@ function inici(){
 				
 	});
 	
+	/**********************************************************************
+	 * CAPTCHA
+	 *******************************************************************/
 	
+	var captcha=document.getElementById("captcha");
+	captcha.addEventListener("blur",function() {
 	
-
-	
-}
-
-function insertAfter(e,i){ 
-    if(e.nextSibling){ 
-        e.parentNode.insertBefore(i,e.nextSibling); 
-    } else { 
-        e.parentNode.appendChild(i); 
-    }
-}
-
-
-function validateMyForm(){
-
-		if(validar_nick==true && validar_correo==true  && validar_nombre==true  && validar_apellidos==true  && validar_contrasena==true  
-				&& validar_contrasena2==true  && validar_fecha==true  && validar_telefono==true && document.getElementById("aceptar").checked==true ){
-			return true;
+		if (captcha.value!=""){
+			var lletres=captcha.value;
+			if (lletres==getCookie()){
+				captcha.setAttribute("id","validoGreen");
+				validar_captcha=true;
+				if (document.getElementById("borrado9")!= null){
+					borrado9 = document.getElementById("borrado9");
+					borrado9.remove();
+				}
+			}else{
+				if (document.getElementById("borrado9")!= null){
+					borrado9 = document.getElementById("borrado9");
+					borrado9.remove();
+				}
+				div=document.createElement("div");
+				text=document.createTextNode("El captcha no coinciden");				
+				div.appendChild(text);
+				div.setAttribute("id","borrado9");
+				insertAfter(captcha,div);
+				captcha.setAttribute("id","validoRojo");
+				validar_captcha=false;
+			}
+			
 		}else{
-			 return false;
+			if (document.getElementById("borrado9")!= null){
+				borrado9 = document.getElementById("borrado9");
+				borrado9.remove();
+			}
+			div=document.createElement("div");
+			text=document.createTextNode("Este campo no se puede dejar en blanco");				
+			div.appendChild(text);
+			div.setAttribute("id","borrado9");
+			insertAfter(captcha,div);
+			captcha.setAttribute("id","validoRojo");
+			validar_captcha=false;
 		}
-	 
-	}
+			
+		
+				
+	});
+	
+	
+	
+}
+
+function getCookie() {
+	var cname="captcha";
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}

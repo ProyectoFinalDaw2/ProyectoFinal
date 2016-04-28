@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../db/usuario.php';
 include '../db/db_connect.php';
 
@@ -21,7 +22,7 @@ if ($con!=false){
 	if ($insertado==true){
 		echo "insertado con exito";
 		$descon=$conn->disconnect($con);
-		setcookie("usuario", $nick);
+		$_SESSION["inicioSesion"]=$nick;
 		header('Location: ../index.php');
 		
 	}else{
