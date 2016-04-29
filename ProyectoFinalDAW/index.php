@@ -92,7 +92,17 @@ if (isset($_SESSION["inicioSesion"])){
 					    </div>
 					  </li>
 					  <?php }else{?>
-					  <li><a href="#" id="loginContainer" class="btn btn-info"><span class="glyphicon glyphicon-user">&nbsp;</span><?php echo $nick;?></a></li>
+				      <li id="loginContainer">
+						<div class="btn-group">
+					  <button type="button"  data-toggle="dropdown"  class="btn btn-info dropdown-toggle">
+					   <span class="glyphicon glyphicon-user">&nbsp;</span><?php echo $nick;?><span class="caret"></span>
+					  </button>
+					 
+					  <ul class="dropdown-menu" role="menu">
+					    <li><a href="view/perfil_usuario.php">Ver mi perfil</a></li>
+					    <li><a href="controller/cerrar_sesion.php">Cerrar Sesion</a></li>
+					  </ul>
+					</div></li>
 					  <?php }?>
 					 <!-- Login Ends Here -->
 				</ul>

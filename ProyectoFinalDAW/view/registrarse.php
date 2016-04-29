@@ -1,4 +1,14 @@
+<?php 
+session_start();
 
+if (isset($_SESSION["inicioSesion"])){
+	$nick=$_SESSION["inicioSesion"];
+
+}else{
+	$nick=null;
+
+}
+?>
 <!DOCTYPE html> 
 <html lang="en">
 	<head>

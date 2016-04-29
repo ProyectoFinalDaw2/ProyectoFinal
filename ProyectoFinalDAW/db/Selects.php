@@ -10,6 +10,21 @@ Class Buscador{
 			
 		}
 		
+		public function veureTot($nick,$con){
+			try {
+				$sql = "SELECT correo,nombre,apellidos,fechaNacimiento,sexo,telefono FROM usuarios WHERE nick='$nick'";
+				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
+					
+				return $resultat;
+					
+			}catch (ExceptionSQL $e){
+				return false;
+			}
+		
+		
+		}
+		
+		
 		public function veureUsuari($nick,$con){
 			try {
 				$sql = "SELECT * FROM usuarios WHERE nick='$nick'";

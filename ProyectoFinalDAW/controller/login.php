@@ -25,7 +25,7 @@ if ($con!=false){
 		header($location);
 	}
 
-
+	$conn->disconnect($con);
 }else{
 	echo "Error connectarte a la base de datos";
 }
