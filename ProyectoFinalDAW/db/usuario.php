@@ -27,6 +27,8 @@ Class Usuario{
 				$this->numero=$numero;
 			}
 			
+			
+			
 		//Setters/Getters
 			
 			//Nick
@@ -99,7 +101,7 @@ Class Usuario{
 				
 				try{
 					
-					$sql = "INSERT INTO usuarios (nick,correo,nombre,apellidos,contrasenya,fechaNacimiento,sexo,telefono)
+					$sql = "INSERT INTO usuario (nick,correo,nombre,apellidos,contrasenya,fechaNacimiento,sexo,telefono)
 					VALUES ('$this->nick','$this->correo','$this->nombre','$this->apellidos','$this->contrasena','$this->fecha','$this->sexo','$this->numero');";
 					$resultat = mysqli_query($con, $sql);
 					return true;
@@ -110,6 +112,48 @@ Class Usuario{
 			
 			}
 			
+		//Cambiar Datos Usuario
+		
+			//Insertar Usuario En BDD
+			
+			public function cambiarUsuario($con,$campo,$variable,$nick){
+			
+				try{
+					$sql = "UPDATE usuario SET  $campo='$variable' WHERE nick='$nick';";
+					$resultat = mysqli_query($con, $sql);
+					return $resultat;
+					return true;
+				}catch (Exception $e){
+					return false;
+				}
+			
+					
+			}
+			
+			//Insertar Imagen EN BDD
+			
+			public function imagen($files,$files2,$nick,$con){
+				$dir_destino="../style/imagenes/";
+				$imagen_subida=$dir_destino.basename($files);
+				if(!is_writable($dir_destino)){
+					//echo "no tiene permisos";
+					return false;
+				}else{
+					if(is_uploaded_file($files2)){
+						if (move_uploaded_file($files2, $imagen_subida)) {
+							$sql = "UPDATE usuario SET  imagen='$imagen_subida' WHERE nick='$nick';";
+							$resultat = mysqli_query($con, $sql);
+							return $resultat;
+							//echo "El archivo es fue cargado exitosamente.\n";
+							return true;
+							//echo "<img src='http://localhost:8080/". basename($imagen_subida) ."' />";
+						} else {return false;
+						//echo "Posible ataque de carga de archivos!\n";
+						}
+					}else{return false;
+					//echo "Posible ataque del archivo subido: ";
+					}
+				}
+			}
 }
 
-?>

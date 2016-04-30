@@ -12,7 +12,7 @@ Class Buscador{
 		
 		public function veureTot($nick,$con){
 			try {
-				$sql = "SELECT correo,nombre,apellidos,fechaNacimiento,sexo,telefono FROM usuarios WHERE nick='$nick'";
+				$sql = "SELECT correo,nombre,apellidos,fechaNacimiento,sexo,telefono FROM usuario WHERE nick='$nick'";
 				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
 					
 				return $resultat;
@@ -27,7 +27,7 @@ Class Buscador{
 		
 		public function veureUsuari($nick,$con){
 			try {
-				$sql = "SELECT * FROM usuarios WHERE nick='$nick'";
+				$sql = "SELECT * FROM usuario WHERE nick='$nick'";
 				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
 			
 			while ($resultat = mysqli_fetch_array($resultat, MYSQL_ASSOC)) {
@@ -45,7 +45,7 @@ Class Buscador{
 		
 		public function veureUsuariCorreu($correo,$con){
 			try {
-				$sql = "SELECT * FROM usuarios WHERE correo='$correo'";
+				$sql = "SELECT * FROM usuario WHERE correo='$correo'";
 				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
 					
 				while ($resultat = mysqli_fetch_array($resultat, MYSQL_ASSOC)) {
@@ -63,7 +63,7 @@ Class Buscador{
 		
 		public function IniciarSesion($correo,$contrasena,$con){
 			try {
-				$sql = "SELECT nick FROM usuarios WHERE contrasenya='$contrasena' AND correo='$correo'";
+				$sql = "SELECT nick FROM usuario WHERE contrasenya='$contrasena' AND correo='$correo'";
 				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
 					
 				while ($resultat = mysqli_fetch_array($resultat, MYSQL_ASSOC)) {
@@ -78,6 +78,38 @@ Class Buscador{
 				return false;
 			}
 				
+		
+		}
+		
+		public function veureImatge($nick,$con){
+			try {
+				$sql = "SELECT imagen FROM usuario WHERE nick='$nick'";
+				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
+					
+				return $resultat;
+					
+			}catch (ExceptionSQL $e){
+				return false;
+			}
+		
+		
+		}
+		
+		public function veureUsuariContrasenya($contrasenya,$con){
+			try {
+				$sql = "SELECT * FROM usuario WHERE contrasenya='$contrasenya'";
+				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
+					
+				while ($resultat = mysqli_fetch_array($resultat, MYSQL_ASSOC)) {
+					return true;
+				}
+		
+				return false;
+					
+			}catch (ExceptionSQL $e){
+				return false;
+			}
+		
 		
 		}
 }

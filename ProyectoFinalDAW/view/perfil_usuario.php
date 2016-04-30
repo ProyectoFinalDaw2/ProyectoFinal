@@ -152,11 +152,12 @@ if (isset($_SESSION["inicioSesion"])){
 							</div>
 
 							<article id="fondosBlancos">
-								<img  class="img-rounded" id="imagenUsuario" src="../style/imagenes/usuarioChica.png"/>
+								<div id="imangen"></div>
 								<div id="derecha">
 								<h2><?php echo $nick;?></h2>
 								<div id="datos"></div>
-								<button class="btn btn-default">cambir datos</button>
+								<button class="btn btn-default" id="cambio">cambir datos</button>
+								<div id="cambioAqui"></div>
 								</div>
 							</article>
 
