@@ -5,6 +5,7 @@ IMPORT
 @import 'mangas.css';
 @import 'registrarse.css';
 @import 'perfilUsuario.css';
+@import 'consolaDeControl.css';
 /************************************************************************************
 APARIENCIA INDEX
 *************************************************************************************/
@@ -319,4 +320,17 @@ body {
         -moz-background-size: cover;
         -webkit-background-size: cover;
         -o-background-size: cover;
+}
+
+#cookies{
+	cursor: pointer;
+	position: fixed;
+	z-index: 9999999999999999; 
+	bottom: 0px; 
+	left: 0px;
+	width: 100%; 
+	opacity: 0.9;
+	background-color: #000; 
+	color: #FFF;
+	
 }

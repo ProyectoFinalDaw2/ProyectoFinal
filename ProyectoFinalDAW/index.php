@@ -18,6 +18,14 @@ if (isset($_SESSION["inicioSesion"])){
 	$nick=null;
 
 }
+
+if (isset($_SESSION["administrador"])){
+	$admin=$_SESSION["administrador"];
+
+}else{
+	$admin=null;
+
+}
 ?>
 <!DOCTYPE html> 
 <html lang="en">
@@ -42,7 +50,8 @@ if (isset($_SESSION["inicioSesion"])){
 		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
 		<script src="javaScrips/calendario.js" type="text/javascript"></script>	
- 		<script src="javaScrips/login.js"></script> 	
+ 		<script src="javaScrips/login.js"></script> 
+ 	    <script src="javaScrips/controll.js"></script>
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -58,6 +67,9 @@ if (isset($_SESSION["inicioSesion"])){
 					  <li><a href="#" class="btn btn-primary">Inicio</a></li>
 					  <li><a href="view/mangas.php" class="btn btn-info">Mangas</a></li>
 					   <li><a href="view/noticias.php" class="btn btn-info">Noticias</a></li>
+					   <?php if ($admin!=null){?>
+					    <li><a href="view/Control_Administrador.php" class="btn btn-info">Controll</a></li>
+					   <?php }?>
 					   <?php if ($nick==null){?>
 					  <li><a href="view/registrarse.php" class="btn btn-info">Registrate</a></li>
 					   <!-- Login Starts Here -->
@@ -309,6 +321,11 @@ if (isset($_SESSION["inicioSesion"])){
 			<!------------------------------------------------------------  FINAL SLIDEBAR------------------------------------------------->
 			<!------------------------------------------------------------FOOTER------------------------------------------------->
 			<footer>
+			<div id="cookies" >
+	<p>
+			<b>Mangas's Umbrella</b> utiliza cookies propias y de terceros para mejorar su experiencia de navegacion y tambien para hacer algunas cosas especificas. Si continua navegando, entendemos que acepta nuestra <a  href="view/politica_de_cookies.php" >Politica de Cookies</a>.
+	</p>
+</div>
 				<p>&copy; Designet and Created by Judit Cerdà Izquierdo and Ibis Emmanuel</p>
 			</footer>
 			<!------------------------------------------------------------FINAL FOOTER------------------------------------------------->

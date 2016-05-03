@@ -1,5 +1,5 @@
 <?php
-print_r($_REQUEST);
+
 session_start();
 include '../db/usuario.php';
 include '../db/db_connect.php';

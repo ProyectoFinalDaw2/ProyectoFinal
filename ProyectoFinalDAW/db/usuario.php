@@ -113,9 +113,7 @@ Class Usuario{
 			}
 			
 		//Cambiar Datos Usuario
-		
-			//Insertar Usuario En BDD
-			
+					
 			public function cambiarUsuario($con,$campo,$variable,$nick){
 			
 				try{
@@ -133,7 +131,7 @@ Class Usuario{
 			//Insertar Imagen EN BDD
 			
 			public function imagen($files,$files2,$nick,$con){
-				$dir_destino="../style/imagenes/";
+				$dir_destino="../style/imagenes/usuarios/";
 				$imagen_subida=$dir_destino.basename($files);
 				if(!is_writable($dir_destino)){
 					//echo "no tiene permisos";
@@ -155,5 +153,8 @@ Class Usuario{
 					}
 				}
 			}
+			
+			
+				
 }
 

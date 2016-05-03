@@ -27,7 +27,7 @@ if ($con!=false){
 				
 				
 				if  ($col_value==""){
-					echo "../style/imagenes/usuario.png";
+					echo "../style/imagenes/usuarios/usuario.png";
 				}else{
 					echo $col_value;
 				}

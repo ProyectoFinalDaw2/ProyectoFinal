@@ -15,14 +15,10 @@ if ($con!=false){
 	
 	if ($nick!=false){
 		$_SESSION["inicioSesion"]=$nick;
-		$pag=$_SERVER['HTTP_REFERER'];
-		$location="Location: ".$pag;
-		header($location);
+		header('Location: ../index.php');
 	}else{
 		$_SESSION["inicioSesionFallida"]="inicioSesionFallida";
-		$pag=$_SERVER['HTTP_REFERER'];
-		$location="Location: ".$pag;
-		header($location);
+		header('Location: ../index.php');
 	}
 
 	$conn->disconnect($con);

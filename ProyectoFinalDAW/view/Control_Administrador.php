@@ -1,5 +1,4 @@
-
-<<?php
+<?php 
 session_start();
 
 if (isset($_SESSION["inicioSesion"])){
@@ -38,13 +37,11 @@ if (isset($_SESSION["administrador"])){
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
-		<script src="../javaScrips/cargarDatos.js" type="text/javascript"></script>
+		<script src="../javaScrips/cargarUsuarios.js"></script>
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
 	</head>
-		
-	<!-------------------------------------------------- FINAL HEAD----------------------------->
+
 	<body>
 		<!------------------------------------------------------------PAGEWRAP------------------------------------------------->
 		<div id="pagewrap">
@@ -52,12 +49,12 @@ if (isset($_SESSION["administrador"])){
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 		       			<ul>
 					   <div id="logo"><li><a href="#"><img src="../style/imagenes/simbolo.png" id="medida1"></a>Manga's Umbrella Corporation</li></div>
-					  <li><a href="../index.php"  class="btn btn-info">Inicio</a></li>
+					  <li><a href="../index.php" class="btn btn-info">Inicio</a></li>
 					  <li><a href="mangas.php" class="btn btn-info">Mangas</a></li>
-					   <li><a href="noticias.php" class="btn btn-info">Noticias</a></li>
+					   <li><a href="noticias.php" class="btn btn-info" >Noticias</a></li>
 					   <?php if ($admin!=null){?>
-					    <li><a href="../view/Control_Administrador.php" class="btn btn-info">Controll</a></li>
-					   <?php }?>				
+					    <li><a href="#" class="btn btn-primary">Controll</a></li>
+					   <?php }?>
 				      <li id="loginContainer">
 						<div class="btn-group">
 					  <button type="button"  data-toggle="dropdown"  class="btn btn-info dropdown-toggle">
@@ -65,7 +62,7 @@ if (isset($_SESSION["administrador"])){
 					  </button>
 					 
 					  <ul class="dropdown-menu" role="menu">
-					    <li><a href="#">Ver mi perfil</a></li>
+					    <li><a href="../view/perfil_usuario.php">Ver mi perfil</a></li>
 					    <li><a href="../controller/cerrar_sesion.php">Cerrar Sesion</a></li>
 					  </ul>
 					</div></li>
@@ -74,66 +71,21 @@ if (isset($_SESSION["administrador"])){
 		    	</nav>
 			<!------------------------------------------------------------ FINAL NAV------------------------------------------------->
 			<!------------------------------------------------------------ HEADER------------------------------------------------->
-			<header>
 			<div id="header">
 				<div id="topc">
-				<h3>Perfil de <?php echo $nick;?></h3>
-				
+				<h3>Consola Administrador<h3>
+				</div>
+				<div id="fondosBlancos">
+					 <h1>Des de aqui podras controlar varios aspectos de la web</h1>      
+		 			<button type="button" class="btn btn-primary btn-lg">Subir Manga</button>
+		 			<button type="button" class="btn btn-primary btn-lg">Subir Noticia</button>
+		 			<button type="button" class="btn btn-primary btn-lg" id="administrar">Administrar Usuarios</button>
+		 			<div id="contenido"></div>
 				</div>
 			</div>
-			</header>	
+
 			<!------------------------------------------------------------ FINAL HEADER------------------------------------------------->
-			<!------------------------------------------------------------ CONTENT------------------------------------------------->
-			<div id="content">
-					<!------------------------------------------------------------ CONTENT SECTION 1------------------------------------------------->
-					<section>
-
-					<article id="slidevarNoticias">
-						<div id="topc">
-							<h3> Últimas Noticias</h3>
-						</div>
-						<div  id="fondosBlancos">
-						<ol>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-
-						</ol>
-						</div>
-					</article>
-
-				</section>
-						<!------------------------------------------------------------ FINAL SECTION 1------------------------------------------------->		
-			</div>
-			<!------------------------------------------------------------ FINAL CONTENT------------------------------------------------->
-			<!------------------------------------------------------------ SLIDEBAR------------------------------------------------->
-			<div id="sidebar">
-				<!------------------------------------------------------------SECTION 1------------------------------------------------->
-				<section>
-
-							<div id="topc">
-								<h3>Datos del Usuario</h3>
-							</div>
-
-							<article id="fondosBlancos">
-								<div id="imangen"></div>
-								<div id="derecha">
-								<h2><?php echo $nick;?></h2>
-								<div id="datos"></div>
-								<button class="btn btn-default" id="cambio">cambir datos</button>
-								<div id="cambioAqui"></div>
-								</div>
-							</article>
-
-						</section>
-				<!------------------------------------------------------------FINAL SECTION 1------------------------------------------------->
-				
-			</div>
-
-			<!------------------------------------------------------------  FINAL SLIDEBAR------------------------------------------------->
+			
 			<!------------------------------------------------------------FOOTER------------------------------------------------->
 			<footer>
 				<p>&copy; Designet and Created by Judit Cerdà Izquierdo and Ibis Emmanuel</p>

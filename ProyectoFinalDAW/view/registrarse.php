@@ -8,6 +8,13 @@ if (isset($_SESSION["inicioSesion"])){
 	$nick=null;
 
 }
+if (isset($_SESSION["administrador"])){
+	$admin=$_SESSION["administrador"];
+
+}else{
+	$admin=null;
+
+}
 ?>
 <!DOCTYPE html> 
 <html lang="en">
@@ -32,6 +39,8 @@ if (isset($_SESSION["inicioSesion"])){
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
 		<script src="../javaScrips/login.js"></script>
 		<script src="../javaScrips/comprovar_registro.js"></script>
+		<!------------------------------------------------------------Coreusel------------------------------------------------->
+		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	</head>
 
@@ -45,7 +54,11 @@ if (isset($_SESSION["inicioSesion"])){
 					  <li><a href="../index.php" class="btn btn-info">Inicio</a></li>
 					  <li><a href="mangas.php" class="btn btn-info">Mangas</a></li>
 					   <li><a href="noticias.php" class="btn btn-info">Noticias</a></li>
-					  <li><a href="registrarse.php" class="btn btn-primary">Registrate</a></li>
+					   <?php if ($admin!=null){?>
+					    <li><a href="../view/Control_Administrador.php" class="btn btn-info">Controll</a></li>
+					   <?php }?>
+					   <?php if ($nick==null){?>
+					  <li><a href="view/registrarse.php" class="btn btn-info">Registrate</a></li>
 					   <!-- Login Starts Here -->
 					   
 						<li id="login">
@@ -54,34 +67,42 @@ if (isset($_SESSION["inicioSesion"])){
 						<a href="#" id="loginButton" class="btn btn-warning"><span>Login</span><em></em></a>
 						<div style="clear:both"></div>
 						<div id="loginBox">
-							<?php
-								if (isset($_GET['error'])) {
-									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
-									}
-							?> 	<?php
-								if (isset($_GET['error'])) {
-									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
-									}
-								?> 
-						    <form id="loginForm" action="../controller/process_login.php" method="post" name="login_form">
+						    <form id="loginForm" action="../controller/login.php" method="post" name="login_form">
 							<fieldset id="body">
+								<?php if (isset($_SESSION["inicioSesionFallida"])){?>
+								<fieldset>
+								<label id="inicioSesionFallida">Inicio Sesion Incorrecto</label>
+								<?php }?>
 							    <fieldset>
-								<label for="email">Email  <input type="text" name="email" id="email" /></label>
+								<label for="email">Email  <input type="text" name="correo" id="email" /></label>
 							       
 							    </fieldset>
 							    <fieldset>
-								<label for="password">Contraseña  <input type="password" name="password" id="password" /></label>
+								<label for="password">Contraseña  <input type="password" name="contrasena" id="password" /></label>
 							       
 							    </fieldset>
 							    <input type="submit" id="login" value="Entrar"  class="btn btn-info" onclick="formhash(this.form, this.form.password);"/>
-							    <label for="checkbox"><input type="checkbox" id="checkbox" />Recuerdame</label>
+							    <!--  <label for="checkbox"><input type="checkbox" id="checkbox" />Recuerdame</label> -->
 							</fieldset>
-							<span><a href="#">Has olvidado la contraseña?</a></span>
+							<!--<span><a href="#">Has olvidado la contraseña?</a></span> -->
 						    </form>
 						</div>
 						</div>
 					    </div>
 					  </li>
+					  <?php }else{?>
+				      <li id="loginContainer">
+						<div class="btn-group">
+					  <button type="button"  data-toggle="dropdown"  class="btn btn-info dropdown-toggle">
+					   <span class="glyphicon glyphicon-user">&nbsp;</span><?php echo $nick;?><span class="caret"></span>
+					  </button>
+					 
+					  <ul class="dropdown-menu" role="menu">
+					    <li><a href="../view/perfil_usuario.php">Ver mi perfil</a></li>
+					    <li><a href="../controller/cerrar_sesion.php">Cerrar Sesion</a></li>
+					  </ul>
+					</div></li>
+					  <?php }?>
 					 <!-- Login Ends Here -->
 				</ul>
 		    	</nav>
