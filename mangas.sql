@@ -168,3 +168,5 @@ INSERT INTO `mangas`.`usuario` (`ID`, `nick`, `correo`, `nombre`, `apellidos`, `
 INSERT INTO `mangas`.`usuario` (`ID`, `nick`, `correo`, `nombre`, `apellidos`, `contrasenya`, `fechaNacimiento`, `sexo`, `telefono`, `imagen`) VALUES (NULL, 'StonV', 'Ibis@hotmail.com', 'Ibis', 'Valencia', 'qwertY.8', '1996-09-03', 'hombre', '647545478', '');
 INSERT INTO `mangas`.`administrador` (`ID`, `moderador`, `administrador`) VALUES ('1', '1', '1');
 INSERT INTO `mangas`.`administrador` (`ID`, `moderador`, `administrador`) VALUES ('2', '1', '1');
+INSERT INTO `mangas`.`usuario` (`ID`, `nick`, `correo`, `nombre`, `apellidos`, `contrasenya`, `fechaNacimiento`, `sexo`, `telefono`, `imagen`) VALUES (NULL, 'Juan', 'juan@hotmail.com', 'Juan', 'Serrano Gallego', 'usuarionormal.4', '1992-05-04', 'hombre', '647514512', '');
+INSERT INTO `mangas`.`usuarioNormal` (`ID`, `activo`) VALUES ('1', '1'), ('2', '1'), ('3', '1');
