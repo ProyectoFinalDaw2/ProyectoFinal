@@ -78,7 +78,7 @@ if (isset($_SESSION["administrador"])){
 				<div id="fondosBlancos">
 					 <h1>Des de aqui podras controlar varios aspectos de la web</h1>      
 		 			<button type="button" class="btn btn-primary btn-lg">Subir Manga</button>
-		 			<button type="button" class="btn btn-primary btn-lg">Subir Noticia</button>
+		 			<button type="button" class="btn btn-primary btn-lg" id="noticia">Subir Noticia</button>
 		 			<button type="button" class="btn btn-primary btn-lg" id="administrar">Administrar Usuarios</button>
 		 			<div id="contenido"></div>
 				</div>

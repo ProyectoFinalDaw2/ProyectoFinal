@@ -22,7 +22,7 @@ if ($nick != null){
 				$admin=$cambiar->convertirAdmin($con, $id);
 				
 				if ($admin==true){
-					header('Location: ../index.php');
+					header('Location: ../view/Control_Administrador.php');
 				}else{
 					echo "Error al hacer administrador";
 				}

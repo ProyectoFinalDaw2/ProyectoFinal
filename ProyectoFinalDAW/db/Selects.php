@@ -155,7 +155,7 @@ Class Buscador{
 		
 		public function veureTotsUsuariosNoAdmin($con){
 			try {
-				$sql = "SELECT us.nick FROM usuario us, administrador ad WHERE us.id=ad.id AND NOT (us.id=ad.id);";
+				$sql = "SELECT us.nick FROM usuario us, administrador ad WHERE us.id!=ad.id;";
 				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
 				
 					return $resultat;
