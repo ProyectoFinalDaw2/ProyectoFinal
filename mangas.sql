@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `titulo` varchar(50) NOT NULL,
   `noticia` text NOT NULL,
   `descripcion` varchar(200) NOT NULL,
-  `fecha` date NOT NULL,
+  `fecha` varchar(20) NOT NULL,
   `imagen` text NOT NULL,
   `video` text NOT NULL,
    CONSTRAINT noticias_PK_IDNOT PRIMARY KEY(IDNOT),
