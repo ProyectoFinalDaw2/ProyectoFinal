@@ -37,8 +37,8 @@ if (isset($_SESSION["administrador"])){
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
-		<script src="../javaScrips/login.js"></script>
-		<script src="../javaScrips/comprovar_registro.js"></script>
+		<script src="../javaScripts/login.js"></script>
+		<script src="../javaScripts/comprovar_registro.js"></script>
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 

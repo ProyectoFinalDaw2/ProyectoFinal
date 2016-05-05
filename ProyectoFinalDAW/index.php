@@ -48,10 +48,10 @@ if (isset($_SESSION["administrador"])){
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
-		<script src="javaScrips/calendario.js" type="text/javascript"></script>	
- 		<script src="javaScrips/login.js"></script> 
- 	    <script src="javaScrips/controll.js"></script>
+		<!------------------------------------------------------------ Java scripts ------------------------------------------------->
+		<script src="javaScripts/calendario.js" type="text/javascript"></script>	
+ 		<script src="javaScripts/login.js"></script> 
+ 	    <script src="javaScripts/controll.js"></script>
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -67,6 +67,7 @@ if (isset($_SESSION["administrador"])){
 					  <li><a href="#" class="btn btn-primary">Inicio</a></li>
 					  <li><a href="view/mangas.php" class="btn btn-info">Mangas</a></li>
 					   <li><a href="view/noticias.php" class="btn btn-info">Noticias</a></li>
+					   
 					   <?php if ($admin!=null){?>
 					    <li><a href="view/Control_Administrador.php" class="btn btn-info">Controll</a></li>
 					   <?php }?>

@@ -155,7 +155,7 @@ Class Buscador{
 		
 		public function veureTotsUsuariosNoAdmin($con){
 			try {
-				$sql = "SELECT us.nick FROM usuario us, administrador ad WHERE us.id!=ad.id;";
+				$sql = "SELECT us.nick FROM usuario us WHERE us.id NOT IN (SELECT ad.id FROM administrador ad);";
 				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
 				
 					return $resultat;
@@ -164,6 +164,27 @@ Class Buscador{
 				return false;
 			}
 				
+		
+		}
+		
+		
+		public function esActiu($id,$con){
+			try {
+				$sql = "SELECT activo FROM usuarionormal WHERE id='$id'";
+				$resultat = mysqli_query($con,$sql);
+					
+				while ($resultat = mysqli_fetch_array($resultat, MYSQL_ASSOC)) {
+					foreach ($resultat as $col_value) {
+						return $col_value;
+					}
+				}
+		
+				return false;
+					
+			}catch (ExceptionSQL $e){
+				return false;
+			}
+		
 		
 		}
 }

@@ -37,7 +37,8 @@ if (isset($_SESSION["administrador"])){
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
-		<script src="../javaScrips/login.js"></script>
+		<script src="../javaScripts/login.js"></script>
+		<script src="../javaScripts/subirNoticia.js"></script>
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
@@ -113,8 +114,9 @@ if (isset($_SESSION["administrador"])){
 				</div>
 				<div id="fondosBlancos">
 					 <h1>Comparte las últimas noticias con los demas usuarios</h1>      
-		 			<button type="button" class="btn btn-primary btn-lg">Subir Noticia</button></br>
-					<small>Para poder subir noticias tienes que registrarte y aceptar las condiciones</small>
+		 			<button type="button" class="btn btn-primary btn-lg" id="noticia">Subir Noticia</button></br>
+		 			<div id="contenido"></div>
+					<?php if ($nick==null){?><small>Para poder subir noticias tienes que registrarte y aceptar las condiciones</small><?php }?>
 				</div>
 			</div>
 			</header>

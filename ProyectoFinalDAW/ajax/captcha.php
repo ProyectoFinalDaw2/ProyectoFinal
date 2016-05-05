@@ -2,7 +2,7 @@
 /****************************************************************************
 * captcha.php
 *
-* Este documento sirve para crear una imagen/gif de un captcha, el cual sera mostrado en otra página medienta una peticion ajax
+* Este documento sirve para crear una imagen/gif de un captcha, el cual sera mostrado en otra página mediante una petición ajax
 *
 * 
 *
@@ -19,7 +19,7 @@ Class Captcha{
 	
 	/***********************************
 	 * 
-	 * Funcion principal que se encarga de reunir todas las partes para formar el captcha
+	 * Función principal que se encarga de reunir todas las partes para formar el captcha
 	 * 
 	 * 
 	 ***********************************/
@@ -36,7 +36,7 @@ Class Captcha{
  * CREAR CADENA
  * 
  * crea los caracteres del captchar de forma aleatoria usando un bucle para rellenar la variable  $caracteres con los posibles 
- * caracteres a usar extrayendo 1 caracter de $caracteres entre el rango 0 a Numero de letras que tiene la cadena y se introduces en $cadena
+ * caracteres a usar extrayendo 1 carácter de $caracteres entre el rango 0 a Numero de letras que tiene la cadena y se introduces en $cadena
  * 
  * @var $caracteres posibles caracteres a usar
  * @var $numerodeletras numero de letras para generar el texto
@@ -55,10 +55,10 @@ for($i=0;$i<$numerodeletras;$i++)
 /*******************
  * CREAR COOKIE
  * 
- * gurda la $cadena creada anteriorment en una variable $aleatori y a continuación crea una cookie llamada captcha de valir $aleatorio que se caduca en
- * un año y se puede utlizar en todo el dominio de localhost, para poder accerder a su valor des de un javascript y poder validar el captcha.
+ * guarda la $cadena creada anteriormente en una variable $aleatori y a continuación crea una cookie llamada captcha de valor $aleatorio que se caduca en
+ * un año y se puede utilizar en todo el dominio de localhost, para poder acceder a su valor des de un javascript y poder validar el captcha.
  * 
- * @var  $aleatorio gurdara la cadena
+ * @var  $aleatorio guardara la cadena
  * @var  $cadena variable anterior
  **************/
 $aleatorio=$cadena;
@@ -68,11 +68,11 @@ setcookie("captcha", $aleatorio, time() + (86400 * 30),"/");
 /************************************
  *  DAR FORMA DE IMAGEN
  *  
- *  En esta funcion se juntan las diferentes partes que formaran una imagen captcha
+ *  En esta función se juntan las diferentes partes que formaran una imagen captcha
  * 
  * @var $captcha fondo de la imagen a crear
  * @var $colText color que debe tener el texto encima de la imagen creada
- * @var  $aleatorio gurdara la cadena
+ * @var  $aleatorio guardará la cadena
  */
 $captcha = imagecreatefromgif("../style/imagenes/bgcaptcha.gif");
 $colText = imagecolorallocate($captcha, 0, 0, 0);

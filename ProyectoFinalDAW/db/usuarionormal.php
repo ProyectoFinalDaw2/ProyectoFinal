@@ -7,7 +7,6 @@ Class UsuarioNormal{
 			
 			}
 			
-			
 			//INSERTAR en administrador
 			public function meterEnTablaNormal($con,$id){
 					
@@ -19,6 +18,17 @@ Class UsuarioNormal{
 					return false;
 				}
 					
+					
+			}
+			
+			public function desactivar($id,$con){
+				try{
+					$sql = "UPDATE usuarionormal SET activo=0 WHERE id=$id";
+					$resultat = mysqli_query($con, $sql);
+					return true;
+				}catch (Exception $e){
+					return false;
+				}
 					
 			}
 
