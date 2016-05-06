@@ -39,6 +39,7 @@ if (isset($_SESSION["administrador"])){
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
 		<script src="../javaScripts/login.js"></script>
 		<script src="../javaScripts/subirNoticia.js"></script>
+		<script src="../javaScripts/mostrarNoticias.js"></script>
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
@@ -115,7 +116,7 @@ if (isset($_SESSION["administrador"])){
 				<div id="fondosBlancos">
 					 <h1>Comparte las últimas noticias con los demas usuarios</h1>      
 		 			<button type="button" class="btn btn-primary btn-lg" id="noticia">Subir Noticia</button></br>
-		 			<div id="contenido"></div>
+		 			<?php if ($nick!=null){?><div id="contenido"></div><?php }?>
 					<?php if ($nick==null){?><small>Para poder subir noticias tienes que registrarte y aceptar las condiciones</small><?php }?>
 				</div>
 			</div>
@@ -130,7 +131,8 @@ if (isset($_SESSION["administrador"])){
 						<h3>Noticia mas destacada:<h3>
 					</div>
 
-					<article id="fondosBlancos">
+					
+				 <article id="fondosBlancos">
 						<img  class="img-rounded" id="imagenNoticia" src="../style/imagenes/noticias.png"/>
 						<div id="derecha">
 						<h2>London</h2>
@@ -144,7 +146,8 @@ if (isset($_SESSION["administrador"])){
 					<div id="topc">
 						<h3>Noticias<h3>
 					</div>
-					<article id="fondosBlancos">
+					<div id="cargarTodasNoticias"></div>
+					<!-- <article id="fondosBlancos">
 						<img  class="img-rounded" id="imagenNoticia" src="../style/imagenes/noticias.png"/>
 						<div id="derecha">
 						<h2>London</h2>
@@ -212,7 +215,7 @@ if (isset($_SESSION["administrador"])){
 						    <button type="button" class="btn btn-default">4</button>
 						  </div>
 						</div>
-						</div>
+						</div>-->	
 
 				</section>
 				<!------------------------------------------------------------ FINAL SECTION 1------------------------------------------------->
@@ -228,15 +231,7 @@ if (isset($_SESSION["administrador"])){
 							<h3> Últimas Noticias<h3>
 						</div>
 						<div  id="fondosBlancos">
-						<ol>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-
-						</ol>
+							<div id="ultimasNoticias"></div>
 						</div>
 					</article>
 

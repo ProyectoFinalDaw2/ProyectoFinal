@@ -1,3 +1,5 @@
+var validar=false;
+
 window.onload=inici;
 
 
@@ -37,6 +39,7 @@ if (document.getElementById("formulario")!= null){
 			input.setAttribute("type","text");
 			input.setAttribute("name","titulo");
 			input.setAttribute("id","titulo");
+			 form.setAttribute("enctype","multipart/form-data");
 			input.setAttribute("class","form-control");
 		form.appendChild(input);
 		
@@ -76,6 +79,7 @@ if (document.getElementById("formulario")!= null){
 	 		input.setAttribute("type","file");
 	 		input.setAttribute("name","foto");
 	 		input.setAttribute("id","foto");
+	 		input.setAttribute("accept","image/*");
 	 		input.setAttribute("class","form-control");
 	 	form.appendChild(input);
 	 	
@@ -85,6 +89,7 @@ if (document.getElementById("formulario")!= null){
 	 		input.setAttribute("type","file");
 	 		input.setAttribute("name","video");
 	 		input.setAttribute("id","video");
+	 		input.setAttribute("accept","video/*");
 	 		input.setAttribute("class","form-control");
 	 	form.appendChild(input);
 	 	
@@ -151,7 +156,7 @@ variable.addEventListener("blur",function() {
 				insertAfter(variable,div);
 				variable.style.borderColor = "red";
 				variable.style.borderWidth = "2px";
-		validar=false;
+				validar=false;
 	}
 		
 			
@@ -165,4 +170,15 @@ if(e.nextSibling){
 } else { 
     e.parentNode.appendChild(i); 
 }
+}
+
+
+function validateMyForm(){
+	
+	if (validar==true){
+		return true;
+	}else{
+		return false;
+	}
+	
 }

@@ -1,5 +1,3 @@
-var validar=false;
-
 window.onload=inici;
 
 
@@ -65,4 +63,5 @@ function administrar(){
 	
 	cargar();
 }
+
 
