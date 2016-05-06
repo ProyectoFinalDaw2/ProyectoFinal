@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `imagen` varchar(200) NOT NULL,
    CONSTRAINT usuario_PK_ID PRIMARY KEY(ID)
 );
-CREATE TABLE IF NOT EXISTS `usuarioNormal` (
+CREATE TABLE IF NOT EXISTS `usuarionormal` (
   `ID` int(200)  PRIMARY KEY,
   `activo` tinyint(1) NOT NULL DEFAULT '1', 
    CONSTRAINT usuarioNormal_FK_usuario FOREIGN KEY(ID)REFERENCES usuario(ID)
