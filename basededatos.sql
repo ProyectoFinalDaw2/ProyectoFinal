@@ -119,9 +119,11 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `titulo` varchar(50) NOT NULL,
   `noticia` text NOT NULL,
   `descripcion` varchar(200) NOT NULL,
-  `fecha` varchar NOT NULL,
+  `fecha` varchar (50) NOT NULL ,
   `imagen` text NOT NULL,
   `video` text NOT NULL,
+  `global` varchar(50) NOT NULL,
+  `semanal` varchar(50) NOT NULL,
    CONSTRAINT noticias_PK_IDNOT PRIMARY KEY(IDNOT),
    CONSTRAINT noticias_FK_usuario FOREIGN KEY(ID)REFERENCES usuario(ID)
 );
@@ -129,14 +131,16 @@ CREATE TABLE IF NOT EXISTS `todos` (
    `IDNOT` int(200) NOT NULL,
   `IDCOM` int(200) NOT NULL,
    CONSTRAINT todos_FK_noticias FOREIGN KEY(IDNOT)REFERENCES noticias(IDNOT),
-   CONSTRAINT en_FK_comentarios FOREIGN KEY(IDCOM)REFERENCES comentarios(IDCOM)
+   CONSTRAINT todos_FK_comentarios FOREIGN KEY(IDCOM)REFERENCES comentarios(IDCOM)
 );
 CREATE TABLE IF NOT EXISTS `sube` (
    `IDSUBE` int(200) NOT NULL AUTO_INCREMENT,
    `IDVER` int(200) NOT NULL,
    `ID` int(200) NOT NULL,
    `link` varchar(50) NOT NULL,
-   CONSTRAINT sube_PK_IDSUBE PRIMARY KEY(IDSUBE),
+   `global` varchar(50) NOT NULL,
+   `semanal` varchar(50) NOT NULL,  
+  CONSTRAINT sube_PK_IDSUBE PRIMARY KEY(IDSUBE),
    CONSTRAINT sube_FK_VERSION FOREIGN KEY(IDVER)REFERENCES version(IDVER),
    CONSTRAINT sube_FK_uploader FOREIGN KEY(ID)REFERENCES uploader(ID)
 );
@@ -160,11 +164,9 @@ CREATE TABLE IF NOT EXISTS `tiene` (
 CREATE TABLE IF NOT EXISTS `donativo` (
    `IDMANGA` int NOT NULL,
    `IDDONA` int NOT NULL,
-   CONSTRAINT tiene_FK_manga FOREIGN KEY(IDMANGA)REFERENCES mangas(IDMANGA),
-   CONSTRAINT controla_FK_donaciones FOREIGN KEY(IDDONA)REFERENCES donaciones(IDDONA)
+   CONSTRAINT donativo_FK_manga FOREIGN KEY(IDMANGA)REFERENCES mangas(IDMANGA),
+   CONSTRAINT donativo_FK_donaciones FOREIGN KEY(IDDONA)REFERENCES donaciones(IDDONA)
 );
-
-
 INSERT INTO `mangas`.`usuario` (`ID`, `nick`, `correo`, `nombre`, `apellidos`, `contrasenya`, `fechaNacimiento`, `sexo`, `telefono`, `imagen`) VALUES (NULL, 'Juudyyt', 'carjuuc@hotmail.com', 'Judit', 'Cerdà Izquierdo', 'qwertY.8', '1996-09-03', 'mujer', '647545478', '');
 INSERT INTO `mangas`.`usuario` (`ID`, `nick`, `correo`, `nombre`, `apellidos`, `contrasenya`, `fechaNacimiento`, `sexo`, `telefono`, `imagen`) VALUES (NULL, 'StonV', 'Ibis@hotmail.com', 'Ibis', 'Valencia', 'qwertY.8', '1996-09-03', 'hombre', '647545478', '');
 INSERT INTO `mangas`.`administrador` (`ID`, `moderador`, `administrador`) VALUES ('1', '1', '1');
