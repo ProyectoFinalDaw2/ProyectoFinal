@@ -187,6 +187,25 @@ Class Buscador{
 		
 		
 		}
+		
+		//Obtener nick
+		public function veureNick($id,$con){
+			try {
+				$sql = "SELECT nick FROM usuario WHERE id='$id'";
+				$resultat = mysqli_query($con,$sql) or die('Consulta fallida: ' . mysqli_error($con));
+					
+			while ($resultat = mysqli_fetch_array($resultat, MYSQL_ASSOC)) {
+					foreach ($resultat as $col_value) {
+						return $col_value;
+					}
+				}
+					
+			}catch (ExceptionSQL $e){
+				return false;
+			}
+		
+		
+		}
 }
 
 

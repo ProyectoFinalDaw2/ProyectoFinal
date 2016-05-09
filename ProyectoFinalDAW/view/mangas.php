@@ -57,7 +57,7 @@ if (isset($_SESSION["administrador"])){
 					    <li><a href="../view/Control_Administrador.php" class="btn btn-info">Controll</a></li>
 					   <?php }?>
 					   <?php if ($nick==null){?>
-					  <li><a href="view/registrarse.php" class="btn btn-info">Registrate</a></li>
+					  <li><a href="../view/registrarse.php" class="btn btn-info">Registrate</a></li>
 					   <!-- Login Starts Here -->
 					   
 						<li id="login">

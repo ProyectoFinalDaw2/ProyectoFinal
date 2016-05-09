@@ -15,8 +15,8 @@ if ($con!=false){
 			while ($registre = mysqli_fetch_array($resultat, MYSQL_ASSOC)) {
 						//print_r ($registre["IDNOT"]);
 				
-					echo "<li><a href='#' id='";
-					print_r ($registre["IDNOT"]);
+					echo "<li><a href='../controller/pasandoIDNoticia.php?idnot=";
+					print_r($registre["IDNOT"]);
 					echo "'>";	
 					print_r ($registre["titulo"]);
 					echo "'</a></li>";
@@ -43,13 +43,3 @@ if ($con!=false){
 
 ?>
 
-
-					<!--  <ol>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-
-						</ol> -->

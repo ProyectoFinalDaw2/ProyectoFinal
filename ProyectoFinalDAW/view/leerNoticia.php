@@ -17,13 +17,13 @@ if (isset($_SESSION["administrador"])){
 
 }
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<!-- viewport meta to reset iPhone inital scale -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-<title>Manga's Umbrella Corporation</title>
+	<head>
+		<meta charset="utf-8">
+		<!-- viewport meta to reset iPhone inital scale -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+		<title>Manga's Umbrella Corporation</title>
 		<!-------------------------------------------------- css3-mediaqueries.js for IE8 or older----------------------------->
 		<link rel="shortcut icon" type="image/x-icon" href="../style/imagenes/favicon.ico" />
 		<!-------------------------------------------------- css3-mediaqueries.js for IE8 or older----------------------------->
@@ -34,12 +34,13 @@ if (isset($_SESSION["administrador"])){
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 		<!------------------------------------------------------------ JQUERY------------------------------------------------->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
 		<script src="../javaScripts/login.js"></script>
-		<!------------------------------------------------------------Coreusel------------------------------------------------->
+		<script src="../javaScripts/mostrarNoticia.js"></script>
+	<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
 
@@ -53,7 +54,7 @@ if (isset($_SESSION["administrador"])){
 					  <li><a href="../index.php" class="btn btn-info">Inicio</a></li>
 					  <li><a href="mangas.php" class="btn btn-info">Mangas</a></li>
 					   <li><a href="noticias.php" class="btn btn-info">Noticias</a></li>
-					    <?php if ($admin!=null){?>
+					   <?php if ($admin!=null){?>
 					    <li><a href="../view/Control_Administrador.php" class="btn btn-info">Controll</a></li>
 					   <?php }?>
 					   <?php if ($nick==null){?>
@@ -113,16 +114,16 @@ if (isset($_SESSION["administrador"])){
 				<h3>Terminos de Uso</h3>
 				</div>
 				<div id="fondosBlancos">
-				 <h1>Al aceptar los siguientes puntos, usted se compromete a ...</h1>     
-			     
-		   		 </div>	
+ 					<div id="Noticia"></div>
+ 				</div>	
+		    </div>	
 		
 			
 			<!------------------------------------------------------------ FINAL HEADER------------------------------------------------->
 			
 			<!------------------------------------------------------------FOOTER------------------------------------------------->
 			<footer>
-				<p>&copy; Designet and Created by Judit CerdÃ  Izquierdo and Ibis Emmanuel</p>
+				<p>&copy; Designet and Created by Judit Cerdà Izquierdo and Ibis Emmanuel</p>
 			</footer>
 			<!------------------------------------------------------------FINAL FOOTER------------------------------------------------->
 		</div>

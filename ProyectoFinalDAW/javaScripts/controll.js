@@ -6,6 +6,8 @@ function inici(){
 		
 document.getElementById("cookies").onclick=desaparecer;
 comprobar();
+comprobar2();
+noticiaMasDestacada();
 
 }
 
@@ -50,3 +52,71 @@ function obtenerRespuesta(){
 function desaparecer(){
 	document.getElementById("cookies").remove();
 }
+
+
+
+function noticiaMasDestacada(){
+	
+	
+	
+	peticion_http1=inicializa_xhr();
+	
+	peticion_http1.onreadystatechange = obtenerRespuesta1;
+
+
+
+	peticion_http1.open('GET', "ajax/mostrarNoticiasMasDestacadasIndex.php", true);
+
+	peticion_http1.send(null);
+}
+
+function obtenerRespuesta1(){
+
+	if(peticion_http1.readyState == 4) {
+
+	      if(peticion_http1.status == 200) {
+
+	    	 
+	    	 document.getElementById("destacada").innerHTML=peticion_http1.responseText;
+		
+
+		}
+
+	}
+
+}
+
+function comprobar2(){
+	
+
+	  peticion_http2=inicializa_xhr();
+
+	  peticion_http2.onreadystatechange = obtenerRespuesta2;
+
+
+
+	  peticion_http2.open('GET', "ajax/mostrarUltimasNoticiasIndex.php", true);
+
+	  peticion_http2.send(null);
+	  
+	  
+
+	}
+
+
+
+	function obtenerRespuesta2(){
+
+		if(peticion_http2.readyState == 4) {
+
+		      if(peticion_http2.status == 200) {
+
+		    
+		    	 document.getElementById("ultimasNoticias").innerHTML=peticion_http2.responseText;
+	  		
+
+			}
+
+		}
+
+	}

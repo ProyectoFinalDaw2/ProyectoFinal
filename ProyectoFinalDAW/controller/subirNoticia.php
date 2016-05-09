@@ -44,7 +44,7 @@ if ($con!=false){
 			if ($insertar==true){
 				
 				$selc_not=new BuscadorNoticia();
-				$idnot=$selc_not->obtenerID($con);
+				$idnot=$selc_not->obtenerIDMAX($con);
 				
 				if ($idnot!=false){
 					if ($imagen!= null){

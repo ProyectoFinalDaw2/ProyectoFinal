@@ -52,6 +52,7 @@ if (isset($_SESSION["administrador"])){
 		<script src="javaScripts/calendario.js" type="text/javascript"></script>	
  		<script src="javaScripts/login.js"></script> 
  	    <script src="javaScripts/controll.js"></script>
+ 	  
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -159,29 +160,9 @@ if (isset($_SESSION["administrador"])){
 								<h3>Noticias</h3>
 							</div>
 
-							<article id="fondosBlancos">
-								<img  class="img-rounded" id="imagenNoticia" src="style/imagenes/noticias.png"/>
-								<div id="derecha">
-								<h2>London</h2>
-								<h4>Explicacion sobre londes</h4>	
-								<p>London is the capital city of England. It is the most populous city in the United Kingdom,
-									with a metropolitan area of over 13 million inhabitants...</p>
+							<div id="destacada"></div>
+							
 						
-								<button class="btn btn-default">Leer más</button>
-								</div>
-							</article>
-
-							<article id="fondosBlancos">
-								<img  class="img-rounded" id="imagenNoticia" src="style/imagenes/noticias.png"/>
-								<div id="derecha">
-								<h2>London</h2>
-								<h4>Explicacion sobre londes</h4>	
-								<p>London is the capital city of England. It is the most populous city in the United Kingdom,
-									with a metropolitan area of over 13 million inhabitants...</p>
-						
-								<button class="btn btn-default">Leer más</button>
-								</div>
-							</article>
 
 						</section>
 						<!------------------------------------------------------------ FINAL SECTION 1------------------------------------------------->
@@ -257,15 +238,7 @@ if (isset($_SESSION["administrador"])){
 							<h3> Últimas Noticias</h3>
 						</div>
 						<div  id="fondosBlancos">
-						<ol>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-							<li><a href="#" >Noticia del dia</a></li>
-
-						</ol>
+						<div id="ultimasNoticias"></div>
 						</div>
 					</article>
 

@@ -1,0 +1,71 @@
+<?php
+include '../db/db_connect.php';
+include '../db/Selects_Noticia.php';
+
+
+$conn=new Connect();
+$con=$conn->connection();
+
+if ($con!=false){
+
+	$select_noticia=new BuscadorNoticia();
+	
+	
+		$resultat=$select_noticia->obtenerDestacadaGlobal($con);
+
+		if ($resultat!=false){
+			while ($registre = mysqli_fetch_array($resultat, MYSQL_ASSOC)) {
+				
+				echo " <article id='fondosBlancos'>";
+				if ($registre["imagen"]!=null){
+					echo "<img  class='img-rounded' id='imagenNoticia' src='";
+					print_r($registre["imagen"]);
+					echo "'/>";
+				} 
+				
+				
+				echo "<div id='derecha'>";
+				if ($registre["video"]!=null){
+					echo "Esta noticia Contiene un video";
+				}
+				echo "<h2>";
+				print_r($registre["titulo"]);
+				echo "</h2>";
+				echo "<p>";
+				print_r($registre["descripcion"]);
+				echo "</p>";
+				
+				echo "<a href='../controller/pasandoIDNoticia.php?idnot=";
+				print_r($registre["IDNOT"]);
+				echo "'><button class='btn btn-default'>Leer mas</button></a>";
+				
+				echo "</div>
+					</article>";
+
+			}
+			
+			echo "</div>
+				  </div>
+				  </div>";
+				
+			
+				
+		}else{
+			echo "Error en la consulta";
+		}
+	
+	
+		
+			
+	$conn->disconnect($con);
+
+
+
+}else{
+	echo "Error connectarte a la base de datos";
+}
+
+?>
+
+
+

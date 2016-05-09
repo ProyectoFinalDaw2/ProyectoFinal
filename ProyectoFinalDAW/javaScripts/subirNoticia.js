@@ -1,14 +1,8 @@
 var validar=false;
 
-window.onload=inici;
 
-
-function inici(){
 	
-	document.getElementById('noticia').onclick = subirNoticia;
 
-
-}
 
 function subirNoticia(){
 

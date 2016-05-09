@@ -126,8 +126,20 @@ Class Noticia{
 
 		}
 			
-			
-			
+		//Incrementar contadores	
+		public function contadores($idnot,$con,$global,$semanal){
+		
+			try{
+					
+				$sql = "UPDATE noticias SET  global=$global,semanal=$semanal WHERE IDNOT=$idnot";
+				$resultat = mysqli_query($con, $sql);
+				return true;
+			}catch (Exception $e){
+				return false;
+			}
+		
+		
+		}	
 			
 }
 

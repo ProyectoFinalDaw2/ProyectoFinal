@@ -11,7 +11,7 @@ Class UsuarioNormal{
 			public function meterEnTablaNormal($con,$id){
 					
 				try{
-					$sql = "INSERT INTO usuarionormal VALUES  ($id,1)";
+					$sql = "INSERT INTO usuarioNormal VALUES  ($id,1)";
 					$resultat = mysqli_query($con, $sql);
 					return true;
 				}catch (Exception $e){
@@ -23,7 +23,7 @@ Class UsuarioNormal{
 			
 			public function desactivar($id,$con){
 				try{
-					$sql = "UPDATE usuarionormal SET activo=0 WHERE id=$id";
+					$sql = "UPDATE usuarioNormal SET activo=0 WHERE id=$id";
 					$resultat = mysqli_query($con, $sql);
 					return true;
 				}catch (Exception $e){

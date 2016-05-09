@@ -39,7 +39,9 @@ if (isset($_SESSION["administrador"])){
 		<!------------------------------------------------------------ Java scrips ------------------------------------------------->
 		<script src="../javaScripts/login.js"></script>
 		<script src="../javaScripts/subirNoticia.js"></script>
+		<script src="../javaScripts/mostrarRanking.js"></script>
 		<script src="../javaScripts/mostrarNoticias.js"></script>
+		
 		<!------------------------------------------------------------Coreusel------------------------------------------------->
 		  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
@@ -132,90 +134,14 @@ if (isset($_SESSION["administrador"])){
 					</div>
 
 					
-				 <article id="fondosBlancos">
-						<img  class="img-rounded" id="imagenNoticia" src="../style/imagenes/noticias.png"/>
-						<div id="derecha">
-						<h2>London</h2>
-						<h4>Explicacion sobre londes</h4>	
-						<p>London is the capital city of England. It is the most populous city in the United Kingdom,
-							with a metropolitan area of over 13 million inhabitants...</p>
-						
-						<button class="btn btn-default">Leer más</button>
-						</div>
-					</article>
+				
+						<div id="destacada"></div>
+					
 					<div id="topc">
 						<h3>Noticias<h3>
 					</div>
 					<div id="cargarTodasNoticias"></div>
-					<!-- <article id="fondosBlancos">
-						<img  class="img-rounded" id="imagenNoticia" src="../style/imagenes/noticias.png"/>
-						<div id="derecha">
-						<h2>London</h2>
-						<h4>Explicacion sobre londes</h4>	
-						<p>London is the capital city of England. It is the most populous city in the United Kingdom,
-							with a metropolitan area of over 13 million inhabitants...</p>
-						
-						<button class="btn btn-default">Leer más</button>
-						</div>
-					</article>
-
-					<article id="fondosBlancos">
-						<img  class="img-rounded" id="imagenNoticia" src="../style/imagenes/noticias.png"/>
-						<div id="derecha">
-						<h2>London</h2>
-						<h4>Explicacion sobre londes</h4>	
-						<p>London is the capital city of England. It is the most populous city in the United Kingdom,
-							with a metropolitan area of over 13 million inhabitants...</p>
-						
-						<button class="btn btn-default">Leer más</button>
-						</div>
-					</article>
-
-					<article id="fondosBlancos">
-						<img  class="img-rounded" id="imagenNoticia" src="../style/imagenes/noticias.png"/>
-						<div id="derecha">
-						<h2>London</h2>
-						<h4>Explicacion sobre londes</h4>	
-						<p>London is the capital city of England. It is the most populous city in the United Kingdom,
-							with a metropolitan area of over 13 million inhabitants...</p>
-						
-						<button class="btn btn-default">Leer más</button>
-						</div>
-					</article>
-
-					<article id="fondosBlancos">
-						<img  class="img-rounded" id="imagenNoticia" src="../style/imagenes/noticias.png"/>
-						<div id="derecha">
-						<h2>London</h2>
-						<h4>Explicacion sobre londes</h4>	
-						<p>London is the capital city of England. It is the most populous city in the United Kingdom,
-							with a metropolitan area of over 13 million inhabitants...</p>
-						
-						<button class="btn btn-default">Leer más</button>
-						</div>
-					</article>
-
-					<article id="fondosBlancos">
-						<img  class="img-rounded" id="imagenNoticia" src="../style/imagenes/noticias.png"/>
-						<div id="derecha">
-						<h2>London</h2>
-						<h4>Explicacion sobre londes</h4>	
-						<p>London is the capital city of England. It is the most populous city in the United Kingdom,
-							with a metropolitan area of over 13 million inhabitants...</p>
-						
-						<button class="btn btn-default">Leer más</button>
-						</div>
-					</article>
-					<div id="numeros">
-						<div class="btn-toolbar" role="toolbar">
-						  <div class="btn-group">
-						     <button type="button" class="btn">1</button>
-						    <button type="button" class="btn btn-default">2</button>
-						    <button type="button" class="btn btn-default">3</button>
-						    <button type="button" class="btn btn-default">4</button>
-						  </div>
-						</div>
-						</div>-->	
+					
 
 				</section>
 				<!------------------------------------------------------------ FINAL SECTION 1------------------------------------------------->
@@ -244,14 +170,9 @@ if (isset($_SESSION["administrador"])){
 							<h3>Top Noticias<h3>
 						</div>
 						<div id="fondosBlancos">
-						<p> <button  class="btn btn-default active" >Semanal</button>  <button class="btn btn-default">Global</button></p>
-						<ol>
-							<li><img id="imgmangamini"src="../style/imagenes/ranma.png" class="img-rounded"/><a href="#" > El creador de Ranma</a> <br/> subido por joquese1996</li>
-							<li><img id="imgmangamini"src="../style/imagenes/ranma.png" class="img-rounded"/><a href="#" > El creador de Ranma</a> <br/> subido por joquese1996</li>
-							<li><img id="imgmangamini"src="../style/imagenes/ranma.png" class="img-rounded"/><a href="#" > El creador de Ranma</a> <br/> subido por joquese1996</li>
-							<li><img id="imgmangamini"src="../style/imagenes/ranma.png" class="img-rounded"/><a href="#" > El creador de Ranma</a> <br/> subido por joquese1996</li>
-							<li><img id="imgmangamini"src="../style/imagenes/ranma.png" class="img-rounded"/><a href="#" >El creador de Ranma</a> <br/> subido por joquese1996</li>
-						</ol>
+						<p> <button  class="btn btn-default" id="semanal">Semanal</button>  <button class="btn btn-default" id="global">Global</button></p>
+						<div id="ranking"></div>
+						
 						</div>
 					</article>
 

@@ -1,3 +1,11 @@
+<?php 
+session_start();
+
+if (isset($_SESSION["inicioSesion"])){
+	$nick=$_SESSION["inicioSesion"];
+
+}
+?>
 <!DOCTYPE html> 
 <html lang="en">
 	<head>
@@ -35,36 +43,31 @@
 					   <li><a href="noticias.php" class="btn btn-info">Noticias</a></li>
 					  <li><a href="registrarse.php" class="btn btn-info">Registrate</a></li>
 					   <!-- Login Starts Here -->
-					   
+					   				   
 						<li id="login">
 					    <div id="loginContainer">
 						<div id="loginButton">
 						<a href="#" id="loginButton" class="btn btn-warning"><span>Login</span><em></em></a>
 						<div style="clear:both"></div>
 						<div id="loginBox">
-							<?php
-								if (isset($_GET['error'])) {
-									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
-									}
-							?> 	<?php
-								if (isset($_GET['error'])) {
-									echo '<p class="error">Error al iniciar sesi&oacute;n!</p>';
-									}
-								?> 
-						    <form id="loginForm" action="includes/process_login.php" method="post" name="login_form">
+						    <form id="loginForm" action="../controller/login.php" method="post" name="login_form">
 							<fieldset id="body">
+								<?php if (isset($_SESSION["inicioSesionFallida"])){?>
+								<fieldset>
+								<label id="inicioSesionFallida">Inicio Sesion Incorrecto</label>
+								<?php }?>
 							    <fieldset>
-								<label for="email">Email  <input type="text" name="email" id="email" /></label>
+								<label for="email">Email  <input type="text" name="correo" id="email" /></label>
 							       
 							    </fieldset>
 							    <fieldset>
-								<label for="password">ContraseÃ±a  <input type="password" name="password" id="password" /></label>
+								<label for="password">ContraseÃ±a  <input type="password" name="contrasena" id="password" /></label>
 							       
 							    </fieldset>
 							    <input type="submit" id="login" value="Entrar"  class="btn btn-info" onclick="formhash(this.form, this.form.password);"/>
-							    <label for="checkbox"><input type="checkbox" id="checkbox" />Recuerdame</label>
+							    <!--  <label for="checkbox"><input type="checkbox" id="checkbox" />Recuerdame</label> -->
 							</fieldset>
-							<span><a href="#">Has olvidado la contraseÃ±a?</a></span>
+							<!--<span><a href="#">Has olvidado la contraseÃ±a?</a></span> -->
 						    </form>
 						</div>
 						</div>
