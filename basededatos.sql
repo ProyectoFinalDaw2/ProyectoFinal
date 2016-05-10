@@ -63,6 +63,8 @@ CREATE TABLE IF NOT EXISTS `control` (
   `ID` int(200) NOT NULL,
   `estado` varchar(20) NOT NULL,
   `fecha` date NOT NULL,
+  `global` int(50) NOT NULL AUTO_INCREMENT,
+  `semanal` int(50) NOT NULL AUTO_INCREMENT,
   CONSTRAINT control_FK_MANGA FOREIGN KEY(IDMANGA)REFERENCES mangas(IDMANGA),
   CONSTRAINT control_FK_usuarioNormal FOREIGN KEY(ID)REFERENCES usuarioNormal(ID)
 );
@@ -122,8 +124,8 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `fecha` varchar (50) NOT NULL ,
   `imagen` text NOT NULL,
   `video` text NOT NULL,
-  `global` varchar(50) NOT NULL,
-  `semanal` varchar(50) NOT NULL,
+  `global` int(50) NOT NULL AUTO_INCREMENT,
+  `semanal` int(50) NOT NULL AUTO_INCREMENT,
    CONSTRAINT noticias_PK_IDNOT PRIMARY KEY(IDNOT),
    CONSTRAINT noticias_FK_usuario FOREIGN KEY(ID)REFERENCES usuario(ID)
 );
@@ -138,8 +140,8 @@ CREATE TABLE IF NOT EXISTS `sube` (
    `IDVER` int(200) NOT NULL,
    `ID` int(200) NOT NULL,
    `link` varchar(50) NOT NULL,
-   `global` varchar(50) NOT NULL,
-   `semanal` varchar(50) NOT NULL,  
+ `global` int(50) NOT NULL AUTO_INCREMENT,
+  `semanal` int(50) NOT NULL AUTO_INCREMENT,  
   CONSTRAINT sube_PK_IDSUBE PRIMARY KEY(IDSUBE),
    CONSTRAINT sube_FK_VERSION FOREIGN KEY(IDVER)REFERENCES version(IDVER),
    CONSTRAINT sube_FK_uploader FOREIGN KEY(ID)REFERENCES uploader(ID)
