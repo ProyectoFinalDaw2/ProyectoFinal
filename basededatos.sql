@@ -2,7 +2,7 @@
 --  ASI SE IMPORTA PERFECTAMENTE
 -- Base de datos: `mangas`
 --
-CREATE DATABASE IF NOT EXISTS `mangas` CHARACTER SET 'UTF8' COLLATE 'utf8_general_ci';
+CREATE DATABASE IF NOT EXISTS `mangas` ;
 --
 -- USAMOS LA BASE DATOS: MANGAS
 --
@@ -21,10 +21,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `activo` tinyint(1) NOT NULL DEFAULT '1',
    CONSTRAINT usuario_PK_ID PRIMARY KEY(ID)
 );
-CREATE TABLE IF NOT EXISTS `usuarioNormal` (
+CREATE TABLE IF NOT EXISTS `usuarionormal` (
   `ID` int(200)  PRIMARY KEY,
   `activo` tinyint(1) NOT NULL DEFAULT '1', 
-   CONSTRAINT usuarioNormal_FK_usuario FOREIGN KEY(ID)REFERENCES usuario(ID)
+   CONSTRAINT usuarionormal_FK_usuario FOREIGN KEY(ID)REFERENCES usuario(ID)
   );
 CREATE TABLE IF NOT EXISTS `administrador` (
    `ID` int(200) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `control` (
   `global` int DEFAULT 0,
   `semanal` int DEFAULT 0,
   CONSTRAINT control_FK_MANGA FOREIGN KEY(IDMANGA)REFERENCES mangas(IDMANGA),
-  CONSTRAINT control_FK_usuarioNormal FOREIGN KEY(ID)REFERENCES usuarioNormal(ID)
+  CONSTRAINT control_FK_usuarionormal FOREIGN KEY(ID)REFERENCES usuarionormal(ID)
 );
 CREATE TABLE IF NOT EXISTS `donaciones` (
   `IDDONA` int NOT NULL AUTO_INCREMENT,
@@ -174,4 +174,4 @@ INSERT INTO `mangas`.`usuario` (`ID`, `nick`, `correo`, `nombre`, `apellidos`, `
 INSERT INTO `mangas`.`administrador` (`ID`, `moderador`, `administrador`) VALUES ('1', '1', '1');
 INSERT INTO `mangas`.`administrador` (`ID`, `moderador`, `administrador`) VALUES ('2', '1', '1');
 INSERT INTO `mangas`.`usuario` (`ID`, `nick`, `correo`, `nombre`, `apellidos`, `contrasenya`, `fechaNacimiento`, `sexo`, `telefono`, `imagen`) VALUES (NULL, 'Juan', 'juan@hotmail.com', 'Juan', 'Serrano Gallego', 'usuarionormal.4', '1992-05-04', 'hombre', '647514512', '');
-INSERT INTO `mangas`.`usuarioNormal` (`ID`, `activo`) VALUES ('1', '1'), ('2', '1'), ('3', '1');
+INSERT INTO `mangas`.`usuarionormal` (`ID`, `activo`) VALUES ('1', '1'), ('2', '1'), ('3', '1');
